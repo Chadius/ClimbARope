@@ -19,17 +19,14 @@ package
 		public var levelComplete:Boolean;		//true if and only if player reaches the endpoint
 		public var endpoint:int;				//the y-value the player needs to reach in order to complete the level
 		
-		public var testerI:int;	// these are just to make sure the flow works
 		public var testTextField:FlxText;
-		public var phaseOne:Boolean;
 		
 		public var group:FlxGroup;
 		
 		public function Level(i:int) 
 		{
 			testTextField = new FlxText(0, 0, 100, i.toString());
-			
-			//construct player, 
+
 			levelComplete = false;
 			endpoint = 10;
 			rope = new Rope(270, 0);
@@ -46,15 +43,6 @@ package
 			{
 				levelComplete = true;
 			}
-			/*//this is for testing ONLY
-			else if (FlxG.keys.SPACE)
-			{
-				phaseOne = true;
-			}
-			else if (phaseOne && FlxG.keys.G)
-			{
-				levelComplete = true;
-			}*/
 			else
 			{
 				testTextField.update();
