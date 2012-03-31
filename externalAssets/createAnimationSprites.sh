@@ -8,5 +8,12 @@ tracyFail01.png \
 tracyFail02.png \
 ../assets/tracy.png
 
+montage -background transparent -geometry "+0+0" \
+pot.png \
+potBreak01.png \
+potBreak02.png \
+potBreak03.png \
+../assets/pot.png
+
 #Post processing
 cd ..
