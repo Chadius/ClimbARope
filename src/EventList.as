@@ -10,7 +10,7 @@ package
 		public var timedEvents:Vector.<TimedEvent>;				//events that trigger at a particular time in the level
 		public var positionEvents:Vector.<PositionEvent>;		//events that trigger when the player reaches a particular altitude
 		
-		public function EventList(timed:Vector.<FlxSprite>, position:Vector.<FlxSprite>)
+		public function EventList(timed:Vector.<TimedEvent>, position:Vector.<PositionEvent>)
 		{
 			timedEvents = timed;
 			positionEvents = position;
