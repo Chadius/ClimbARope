@@ -1,5 +1,6 @@
 package  
 {
+	import org.flixel.FlxSprite;
 	/**
 	 * ...
 	 * @author JR
