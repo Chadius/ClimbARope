@@ -5,7 +5,7 @@ package
 	 * ...
 	 * @author JR
 	 */
-	public class TimedEvent
+	public class TimedEvent extends LevelEvent
 	{
 		public var goTime:Number;				// When to fire the event
 		

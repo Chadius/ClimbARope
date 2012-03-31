@@ -5,7 +5,7 @@ package
 	 * ...
 	 * @author JR
 	 */
-	public class PositionEvent 
+	public class PositionEvent extends LevelEvent
 	{
 		public var goAltitude:Number;			// What the player position needs to be to fire the event
 		
