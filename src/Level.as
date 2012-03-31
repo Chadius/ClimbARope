@@ -11,11 +11,11 @@ package
 		public var player:Player;				//refers to the trenchcoated player character
 		public var rope:Rope;					//refers to the dangling rope
 		
-/*		public var balconies:BalconyList;		//refers to the balconies obstructing player movement
+//		public var balconies:BalconyList;		//refers to the balconies obstructing player movement
 		public var events:EventList;			//refers to all timed and positionally-cued events: enemy and projectile spawns, etc.
 		
-		public var projectiles:ProjectileList;	//refers to all player and enemy projectiles
-*/		
+//		public var projectiles:ProjectileList;	//refers to all player and enemy projectiles
+		
 		public var levelComplete:Boolean;		//true if and only if player reaches the endpoint
 		public var endpoint:int;				//the y-value the player needs to reach in order to complete the level
 		
@@ -34,7 +34,6 @@ package
 			group = new FlxGroup();
 			group.add(rope);
 			group.add(player);
-
 		}
 		
 		public function update():void
