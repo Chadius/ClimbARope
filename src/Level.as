@@ -2,6 +2,9 @@ package
 {
 	import org.flixel.*;
 	import org.flixel.FlxPoint;
+	import org.flixel.plugin.*;
+	import org.flixel.plugin.photonstorm.*;	
+
 	/**
 	 * ...
 	 * @author JR
@@ -37,7 +40,7 @@ package
 			group.add(rope);
 			group.add(player);
 			EnemyProjectiles = new FlxGroup();
-			EnemyProjectiles.add(new Pot(180, 0));
+			EnemyProjectiles.add(new Pot(200, 0));
 			//Load the background
 			background = new FlxSprite(0, 0, background_day_img);
 		}
@@ -74,8 +77,13 @@ package
 		
 		private function collidePlayerProjectile(p:Player, proj:EnemyProjectile):void
 		{
-			proj.fail();
-			p.fail();
+			//Now do a pixel-perfect version of collision
+			
+			if (FlxCollision.pixelPerfectCheck(p, proj))
+			{
+				proj.fail();
+				p.fail();
+			}
 		}
 		
 		public function collide_player_balcony(player:Player, balcony:Balcony):void 
