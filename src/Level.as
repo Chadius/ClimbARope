@@ -23,6 +23,8 @@ package
 		public var testTextField:FlxText;
 		public var phaseOne:Boolean;
 		
+		public var group:FlxGroup;
+		
 		public function Level(i:int) 
 		{
 			testTextField = new FlxText(0, 0, 100, i.toString());
@@ -32,6 +34,9 @@ package
 			endpoint = 10;
 			rope = new Rope(270, 0);
 			player = new Player(240, 700);
+			group = new FlxGroup();
+			group.add(rope);
+			group.add(player);
 
 		}
 		
@@ -52,17 +57,16 @@ package
 			}*/
 			else
 			{
+				testTextField.update();
+				group.update();
 				//update everything
-				rope.update();
-				player.update();
 			}
 		}
 		
 		public function draw():void
 		{
 			testTextField.draw();
-			rope.draw();
-			player.draw();
+			group.draw();
 		}
 	}
 }

@@ -4,8 +4,8 @@ package
 
 	public class TestState extends FlxState
 	{
-		var player:Player;
-		var rope:Rope;
+		private var player:Player;
+		private var rope:Rope;
 		public function TestState()
 		{
 			super();
