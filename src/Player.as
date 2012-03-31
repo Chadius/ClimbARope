@@ -10,7 +10,9 @@ package
 		public function Player(x:int, y:int)
 		{
 			// Make a FlxSprite at the given location, using our image
-			super(x,y,player_img)
+			super(x, y);
+			loadGraphic(player_img, true, true, 39, 53);
+			facing = RIGHT;
 		}
 
 		override public function update():void
