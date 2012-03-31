@@ -27,6 +27,10 @@ package
 		
 		public var timeInLevel:Number;			//the total time spent in the level so far
 		
+		public var resetTimerCountdown:Boolean; //If this is on, start to count down
+		public var resetTimerWait:Number = 5.0; //Wait this long before resetting the game
+		public var resetTimerElapsed:Number;			//the total time spent waiting for a reset
+		
 		[Embed (source = "../assets/backgroundDay.png")] private var background_day_img:Class;
 		public var background:FlxSprite;		//Background image.
 		
@@ -49,6 +53,8 @@ package
 			//Load the background
 			background = new FlxSprite(0, 0, background_day_img);
 			timeInLevel = 0;
+			resetTimerCountdown = false;
+			resetTimerElapsed = 0;
 		}
 		
 		public function update():void
@@ -83,6 +89,14 @@ package
 				FlxG.overlap(player, balconyGroup, collide_player_balcony);
 				player.x = rope.x + player.getRopeOffset();
 			}
+			
+			//Reset the level after waiting long enough.
+			if (resetTimerCountdown == true)
+			{
+				resetTimerElapsed += FlxG.elapsed;
+				if (resetTimerElapsed > resetTimerWait)
+					FlxG.switchState(new MenuState);
+			}
 		}
 		
 		public function draw():void
@@ -102,6 +116,9 @@ package
 			{
 				proj.fail();
 				p.fail();
+				//Start the reset countdown.
+				if (resetTimerCountdown == false)
+					resetTimerCountdown = true;
 			}
 		}
 		
