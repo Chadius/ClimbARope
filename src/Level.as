@@ -13,9 +13,8 @@ package
 		
 /*		public var balconies:BalconyList;		//refers to the balconies obstructing player movement
 		public var events:EventList;			//refers to all timed and positionally-cued events: enemy and projectile spawns, etc.
-		
-		public var projectiles:ProjectileList;	//refers to all player and enemy projectiles
-*/		
+		*/
+		public var EnemyProjectiles:FlxGroup;	//refers to all player and enemy projectiles
 		public var levelComplete:Boolean;		//true if and only if player reaches the endpoint
 		public var endpoint:int;				//the y-value the player needs to reach in order to complete the level
 		
@@ -37,7 +36,8 @@ package
 			group = new FlxGroup();
 			group.add(rope);
 			group.add(player);
-
+			EnemyProjectiles = new FlxGroup();
+			EnemyProjectiles.add(new Pot(200, 0));
 		}
 		
 		public function update():void
@@ -60,6 +60,11 @@ package
 				testTextField.update();
 				group.update();
 				//update everything
+				
+				//update projectiles
+				EnemyProjectiles.update();
+				//did they collide with player?
+				FlxG.overlap(player, EnemyProjectiles, collidePlayerProjectile);
 			}
 		}
 		
@@ -67,6 +72,13 @@ package
 		{
 			testTextField.draw();
 			group.draw();
+			EnemyProjectiles.draw();
+		}
+		
+		private function collidePlayerProjectile(p:Player, proj:EnemyProjectile):void
+		{
+			proj.fail();
+			p.fail();
 		}
 	}
 }

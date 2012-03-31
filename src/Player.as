@@ -7,9 +7,9 @@ package
 		// Embed the player's image in the swf
 		[Embed (source = "../assets/tracy.png")] private var player_img:Class;
 		
-		
 		public static const CLIMB_SPEED:Number = 3.0;	// a floating-point multiplier for the player's speed
-
+		public var hasFailed:Boolean = false;
+		
 		public function Player(x:int, y:int)
 		{
 			// Make a FlxSprite at the given location, using our image
@@ -22,30 +22,36 @@ package
 
 		override public function update():void
 		{
-
-			if ( FlxG.keys.UP )
+			if (this.hasFailed == false)
 			{
-				y -= CLIMB_SPEED;
-				this.play("Climb");
-			}
-			if ( FlxG.keys.DOWN )
-			{
-				y += CLIMB_SPEED;
-				this.play("Climb");
-			}
-			if ( FlxG.keys.LEFT && this.facing != RIGHT)
-			{
-				x -= 32;
-				this.facing = RIGHT;
-			}
-			if ( FlxG.keys.RIGHT && this.facing != LEFT)
-			{
-				x += 32;
-				this.facing = LEFT;
+				if ( FlxG.keys.UP )
+				{
+					y -= CLIMB_SPEED;
+					this.play("Climb");
+				}
+				if ( FlxG.keys.DOWN )
+				{
+					y += CLIMB_SPEED;
+					this.play("Climb");
+				}
+				if ( FlxG.keys.LEFT && this.facing != RIGHT)
+				{
+					x -= 32;
+					this.facing = RIGHT;
+				}
+				if ( FlxG.keys.RIGHT && this.facing != LEFT)
+				{
+					x += 32;
+					this.facing = LEFT;
+				}
 			}
 			super.update();
 		}
-
-
+		
+		public function fail():void
+		{
+			this.hasFailed = true;
+			this.play("Fail");
+		}
 	}
 }
