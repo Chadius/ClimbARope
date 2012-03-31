@@ -4,7 +4,7 @@ package
 
 	public class PlayState extends FlxState
 	{
-		public var player:FlxSprite;
+		public var player:Player;
 		
 		public function PlayState()
 		{
@@ -12,7 +12,8 @@ package
 
 		override public function create():void
 		{
-			add(new FlxSprite);
+			player = new Player(125, 230);
+			add(player);
 		}
 	}
 }
