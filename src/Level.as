@@ -9,9 +9,9 @@ package
 	public class Level
 	{
 		public var player:Player;				//refers to the trenchcoated player character
-/*		public var rope:Rope;					//refers to the dangling rope
+		public var rope:Rope;					//refers to the dangling rope
 		
-		public var balconies:BalconyList;		//refers to the balconies obstructing player movement
+/*		public var balconies:BalconyList;		//refers to the balconies obstructing player movement
 		public var events:EventList;			//refers to all timed and positionally-cued events: enemy and projectile spawns, etc.
 		
 		public var projectiles:ProjectileList;	//refers to all player and enemy projectiles
@@ -28,12 +28,11 @@ package
 			testTextField = new FlxText(0, 0, 100, i.toString());
 			
 			//construct player, 
-			player = new Player(125, 230);
 			levelComplete = false;
 			endpoint = 10;
-			
-			//add player, 
-			//add(player);
+			rope = new Rope(270, 0);
+			player = new Player(240, 700);
+
 		}
 		
 		public function update():void
@@ -42,7 +41,7 @@ package
 			{
 				levelComplete = true;
 			}
-			//this is for testing ONLY
+			/*//this is for testing ONLY
 			else if (FlxG.keys.SPACE)
 			{
 				phaseOne = true;
@@ -50,17 +49,20 @@ package
 			else if (phaseOne && FlxG.keys.G)
 			{
 				levelComplete = true;
-			}
+			}*/
 			else
 			{
 				//update everything
-				//add(testTextField);
+				rope.update();
+				player.update();
 			}
 		}
 		
 		public function draw():void
 		{
 			testTextField.draw();
+			rope.draw();
+			player.draw();
 		}
 	}
 }
