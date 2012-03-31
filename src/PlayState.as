@@ -4,6 +4,8 @@ package
 
 	public class PlayState extends FlxState
 	{
+		public var player:FlxSprite;
+		
 		public function PlayState()
 		{
 		}
