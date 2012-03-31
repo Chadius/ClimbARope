@@ -22,6 +22,7 @@ package
 		public var endpoint:int;				//the y-value the player needs to reach in order to complete the level
 		
 		public var testTextField:FlxText;
+		public var helpText:HelpText;			//help text for the player, if needed
 		
 		public var group:FlxGroup;
 		
@@ -30,8 +31,9 @@ package
 		[Embed (source = "../assets/backgroundDay.png")] private var background_day_img:Class;
 		public var background:FlxSprite;		//Background image.
 		
-		public function Level(i:int, theEvents:EventList) 
+		public function Level(i:int, theEvents:EventList, theHelpText:HelpText) 
 		{
+			helpText = theHelpText;
 			events = theEvents;
 			testTextField = new FlxText(0, 0, 100, i.toString());
 			levelComplete = false;
@@ -88,6 +90,7 @@ package
 			background.draw();
 			testTextField.draw();
 			group.draw();
+			helpText.draw();
 			EnemyProjectiles.draw();
 			balconyGroup.draw();
 		}
