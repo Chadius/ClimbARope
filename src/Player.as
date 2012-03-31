@@ -12,7 +12,8 @@ package
 			// Make a FlxSprite at the given location, using our image
 			super(x, y);
 			this.loadGraphic(player_img, true, true, 64, 64);
-			this.addAnimation("Climbing", [1, 0], 2, false);
+			this.addAnimation("Climb", [1, 0], 2, false);
+			this.addAnimation("Fail", [2, 3], 15, true);
 			this.facing = RIGHT;
 		}
 
@@ -22,12 +23,12 @@ package
 			if ( FlxG.keys.UP )
 			{
 				y -= 1;
-				this.play("Climbing");
+				this.play("Climb");
 			}
 			if ( FlxG.keys.DOWN )
 			{
 				y += 1;
-				this.play("Climbing");	
+				this.play("Climb");
 			}
 			if ( FlxG.keys.LEFT && this.facing != RIGHT)
 			{
