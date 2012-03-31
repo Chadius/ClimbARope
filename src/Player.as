@@ -15,7 +15,7 @@ package
 			// Make a FlxSprite at the given location, using our image
 			super(x, y);
 			this.loadGraphic(player_img, true, true, 128, 128);
-			this.addAnimation("Climb", [1, 0], 2, false);
+			this.addAnimation("Climb", [1, 0], 6, false);
 			this.addAnimation("Fail", [2, 3], 15, true);
 			this.facing = RIGHT;
 		}
@@ -52,6 +52,11 @@ package
 		{
 			this.hasFailed = true;
 			this.play("Fail");
+		}
+		
+		public function getRopeOffset():Number 
+		{
+			return (this.facing === RIGHT)? -72 : -24;
 		}
 	}
 }
