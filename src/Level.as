@@ -22,21 +22,24 @@ package
 		
 		public var group:FlxGroup;
 		
+		[Embed (source = "../assets/backgroundDay.png")] private var background_day_img:Class;
+		public var background:FlxSprite;		//Background image.
+		
 		public function Level(i:int) 
 		{
 			testTextField = new FlxText(0, 0, 100, i.toString());
-
 			levelComplete = false;
 			endpoint = 10;
 			rope = new Rope(270, 0);
 			player = new Player(240, 700);
 			balconyGroup = new FlxGroup();
-
 			group = new FlxGroup();
 			group.add(rope);
 			group.add(player);
 			EnemyProjectiles = new FlxGroup();
-			EnemyProjectiles.add(new Pot(200, 0));
+			EnemyProjectiles.add(new Pot(180, 0));
+			//Load the background
+			background = new FlxSprite(0, 0, background_day_img);
 		}
 		
 		public function update():void
@@ -62,6 +65,7 @@ package
 		
 		public function draw():void
 		{
+			background.draw();
 			testTextField.draw();
 			group.draw();
 			EnemyProjectiles.draw();
