@@ -47,9 +47,7 @@ package
 				}
 			}
 			else
-			{
 				y += FALL_SPEED;
-			}
 			super.update();
 		}
 		
