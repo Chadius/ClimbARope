@@ -57,6 +57,7 @@ package
 			}*/
 			else
 			{
+				player.x = rope.x + player.getRopeOffset();
 				testTextField.update();
 				group.update();
 				//update everything
