@@ -8,6 +8,7 @@ package
 		[Embed (source = "../assets/tracy.png")] private var player_img:Class;
 		
 		public static const CLIMB_SPEED:Number = 3.0;	// a floating-point multiplier for the player's speed
+		public static const FALL_SPEED:Number = 1.0;
 		public var hasFailed:Boolean = false;
 		
 		public function Player(x:int, y:int)
@@ -36,15 +37,15 @@ package
 				}
 				if ( FlxG.keys.LEFT && this.facing != RIGHT)
 				{
-					x -= 32;
 					this.facing = RIGHT;
 				}
 				if ( FlxG.keys.RIGHT && this.facing != LEFT)
 				{
-					x += 32;
 					this.facing = LEFT;
 				}
 			}
+			else
+				y += FALL_SPEED;
 			super.update();
 		}
 		
@@ -56,7 +57,24 @@ package
 		
 		public function getRopeOffset():Number 
 		{
-			return (this.facing === RIGHT)? -72 : -24;
+			return (this.facing == RIGHT)? -70 : -26;
+		}
+		
+		public function getPlayerOffset():Number 
+		{
+			return this.width * ((this.facing == RIGHT)? -1: 1);
+		}
+		
+		public function collideWithBalcony(balcony:Balcony):void 
+		{
+			if (this.overlapsAt(this.x, this.last.y, balcony)) {
+				trace("this.facing ", this.facing);
+				this.facing = (this.facing == LEFT)? RIGHT: LEFT;
+				this.x = this.x + this.getPlayerOffset();
+				trace("this.facing ", this.facing);
+			} else {
+				this.y = this.last.y;
+			}
 		}
 	}
 }

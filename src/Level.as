@@ -28,6 +28,10 @@ package
 		
 		public var timeInLevel:Number;			//the total time spent in the level so far
 		
+		public var resetTimerCountdown:Boolean; //If this is on, start to count down
+		public var resetTimerWait:Number = 5.0; //Wait this long before resetting the game
+		public var resetTimerElapsed:Number;			//the total time spent waiting for a reset
+		
 		[Embed (source = "../assets/backgroundDay.png")] private var background_day_img:Class;
 		public var background:FlxSprite;		//Background image.
 		
@@ -41,14 +45,18 @@ package
 			rope = new Rope(270, 0);
 			player = new Player(240, 700);
 			balconyGroup = new FlxGroup();
+			balconyGroup.add(new Balcony(0, 200));
 			group = new FlxGroup();
 			group.add(rope);
 			group.add(player);
 			EnemyProjectiles = new FlxGroup();
 			EnemyProjectiles.add(new Pot(200, 0));
+			EnemyProjectiles.add(new Bird(0, 400));
 			//Load the background
 			background = new FlxSprite(0, 0, background_day_img);
 			timeInLevel = 0;
+			resetTimerCountdown = false;
+			resetTimerElapsed = 0;
 		}
 		
 		public function update():void
@@ -60,7 +68,6 @@ package
 			}
 			else
 			{
-				player.x = rope.x + player.getRopeOffset();
 				testTextField.update();
 				group.update();
 				balconyGroup.update();
@@ -82,6 +89,15 @@ package
 				//did they collide with player?
 				FlxG.overlap(player, EnemyProjectiles, collidePlayerProjectile);
 				FlxG.overlap(player, balconyGroup, collide_player_balcony);
+				player.x = rope.x + player.getRopeOffset();
+			}
+			
+			//Reset the level after waiting long enough.
+			if (resetTimerCountdown == true)
+			{
+				resetTimerElapsed += FlxG.elapsed;
+				if (resetTimerElapsed > resetTimerWait)
+					FlxG.switchState(new MenuState);
 			}
 		}
 		
@@ -103,12 +119,15 @@ package
 			{
 				proj.fail();
 				p.fail();
+				//Start the reset countdown.
+				if (resetTimerCountdown == false)
+					resetTimerCountdown = true;
 			}
 		}
 		
 		public function collide_player_balcony(player:Player, balcony:Balcony):void 
 		{
-			player.y = 700;
+			player.collideWithBalcony(balcony);
 		}
 	}
 }
