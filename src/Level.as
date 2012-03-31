@@ -39,11 +39,12 @@ package
 			rope = new Rope(270, 0);
 			player = new Player(240, 700);
 			balconyGroup = new FlxGroup();
+			balconyGroup.add(new Balcony(0, 200));
 			group = new FlxGroup();
 			group.add(rope);
 			group.add(player);
 			EnemyProjectiles = new FlxGroup();
-			EnemyProjectiles.add(new Pot(200, 0));
+			//EnemyProjectiles.add(new Pot(200, 0));
 			//Load the background
 			background = new FlxSprite(0, 0, background_day_img);
 			timeInLevel = 0;
@@ -58,7 +59,6 @@ package
 			}
 			else
 			{
-				player.x = rope.x + player.getRopeOffset();
 				testTextField.update();
 				group.update();
 				balconyGroup.update();
@@ -80,6 +80,7 @@ package
 				//did they collide with player?
 				FlxG.overlap(player, EnemyProjectiles, collidePlayerProjectile);
 				FlxG.overlap(player, balconyGroup, collide_player_balcony);
+				player.x = rope.x + player.getRopeOffset();
 			}
 		}
 		
@@ -105,7 +106,7 @@ package
 		
 		public function collide_player_balcony(player:Player, balcony:Balcony):void 
 		{
-			player.y = 700;
+			player.collideWithBalcony(balcony);
 		}
 	}
 }
