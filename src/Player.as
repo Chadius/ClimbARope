@@ -5,7 +5,7 @@ package
 	public class Player extends FlxSprite
 	{
 		// Embed the player's image in the swf
-		[Embed (source = "../assets/tracyLeft01.png")] private var player_img:Class;
+		[Embed (source = "../assets/tracy.png")] private var player_img:Class;
 
 		public function Player(x:int, y:int)
 		{
