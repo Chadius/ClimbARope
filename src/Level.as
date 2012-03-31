@@ -25,11 +25,14 @@ package
 		
 		public var group:FlxGroup;
 		
+		public var timeInLevel:Number;			//the total time spent in the level so far
+		
 		[Embed (source = "../assets/backgroundDay.png")] private var background_day_img:Class;
 		public var background:FlxSprite;		//Background image.
 		
-		public function Level(i:int) 
+		public function Level(i:int, theEvents:EventList) 
 		{
+			events = theEvents;
 			testTextField = new FlxText(0, 0, 100, i.toString());
 			levelComplete = false;
 			endpoint = 10;
@@ -43,10 +46,12 @@ package
 			EnemyProjectiles.add(new Pot(200, 0));
 			//Load the background
 			background = new FlxSprite(0, 0, background_day_img);
+			timeInLevel = 0;
 		}
 		
 		public function update():void
 		{
+			timeInLevel += FlxG.elapsed;
 			if (player.y <= endpoint)
 			{
 				levelComplete = true;
@@ -58,6 +63,18 @@ package
 				group.update();
 				balconyGroup.update();
 				//update everything
+				
+				//check event list for projectiles, add any relevant ones to the projectile list
+				var nextEvent:FlxSprite = null;
+				do
+				{
+					nextEvent = events.getNextSprite(timeInLevel, player.y);
+					if (nextEvent != null)
+					{
+						EnemyProjectiles.add(nextEvent);
+					}
+				} while (nextEvent != null);
+				
 				//update projectiles
 				EnemyProjectiles.update();
 				//did they collide with player?

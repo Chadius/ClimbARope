@@ -21,14 +21,14 @@ package
 			var nextEvent:LevelEvent = null;
 			var nextSprite:FlxSprite = null;
 			
-			if ((timedEvents[0] != null) &&
+			if ((timedEvents.length != 0) &&
 				(timedEvents[0].goTime <= elapsed))
 			{
 				nextEvent = timedEvents.shift();
 				nextSprite = nextEvent.sprite;
 				return nextSprite;
 			}
-			if ((positionEvents[0] != null) &&
+			if ((positionEvents.length != 0) &&
 				(positionEvents[0].goAltitude >= playerAltitude))
 			{
 				nextEvent = positionEvents.shift();
