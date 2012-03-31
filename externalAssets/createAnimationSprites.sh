@@ -15,5 +15,7 @@ potBreak02.png \
 potBreak03.png \
 ../assets/pot.png
 
+cp backgroundDay.png ../assets/
+
 #Post processing
 cd ..
