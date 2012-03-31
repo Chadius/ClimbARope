@@ -8,6 +8,7 @@ package
 		[Embed (source = "../assets/tracy.png")] private var player_img:Class;
 		
 		public static const CLIMB_SPEED:Number = 3.0;	// a floating-point multiplier for the player's speed
+		public static const FALL_SPEED:Number = 1.0;
 		public var hasFailed:Boolean = false;
 		
 		public function Player(x:int, y:int)
@@ -44,6 +45,10 @@ package
 					x += 32;
 					this.facing = LEFT;
 				}
+			}
+			else
+			{
+				y += FALL_SPEED;
 			}
 			super.update();
 		}
