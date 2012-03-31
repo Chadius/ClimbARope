@@ -45,6 +45,11 @@ package
 			}
 			super.update();
 		}
+		
+		public function getRopeOffset():Number 
+		{
+			return (this.facing === RIGHT)? -72 : -24;
+		}
 
 
 	}

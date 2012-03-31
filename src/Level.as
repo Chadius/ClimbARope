@@ -11,7 +11,7 @@ package
 		public var player:Player;				//refers to the trenchcoated player character
 		public var rope:Rope;					//refers to the dangling rope
 		
-//		public var balconies:BalconyList;		//refers to the balconies obstructing player movement
+		public var balconyGroup:FlxGroup;		//refers to the balconies obstructing player movement
 		public var events:EventList;			//refers to all timed and positionally-cued events: enemy and projectile spawns, etc.
 		
 //		public var projectiles:ProjectileList;	//refers to all player and enemy projectiles
@@ -31,6 +31,8 @@ package
 			endpoint = 10;
 			rope = new Rope(270, 0);
 			player = new Player(240, 700);
+			balconyGroup = new FlxGroup();
+
 			group = new FlxGroup();
 			group.add(rope);
 			group.add(player);
@@ -44,9 +46,12 @@ package
 			}
 			else
 			{
+				player.x = rope.x + player.getRopeOffset();
 				testTextField.update();
 				group.update();
+				balconyGroup.update();
 				//update everything
+				FlxG.overlap(player, balconyGroup, collide_player_balcony);
 			}
 		}
 		
@@ -54,6 +59,12 @@ package
 		{
 			testTextField.draw();
 			group.draw();
+			balconyGroup.draw();
+		}
+		
+		public function collide_player_balcony(player:Player, balcony:Balcony):void 
+		{
+			player.y = 700;
 		}
 	}
 }
