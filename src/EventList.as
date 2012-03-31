@@ -18,7 +18,7 @@ package
 		
 		public function getNextSprite(elapsed:Number, playerAltitude:int):FlxSprite
 		{
-			var nextEvent:Event = null;
+			var nextEvent:LevelEvent = null;
 			var nextSprite:FlxSprite = null;
 			
 			if ((timedEvents[0] != null) &&
@@ -38,7 +38,5 @@ package
 			
 			return null;
 		}
-		
 	}
-
 }
