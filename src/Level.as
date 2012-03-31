@@ -45,7 +45,7 @@ package
 			group.add(player);
 			EnemyProjectiles = new FlxGroup();
 			EnemyProjectiles.add(new Pot(200, 0));
-			//EnemyProjectiles.add(new Bird(0, 400));
+			EnemyProjectiles.add(new Bird(0, 400));
 			//Load the background
 			background = new FlxSprite(0, 0, background_day_img);
 			timeInLevel = 0;
