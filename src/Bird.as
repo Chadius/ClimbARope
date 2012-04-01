@@ -11,7 +11,7 @@ package
 	public class Bird extends EnemyProjectile
 	{
 		// Embed the player's image in the swf
-		[Embed (source = "../assets/pot.png")] private var bird_img:Class;
+		[Embed (source = "../assets/bird.png")] private var bird_img:Class;
 		[Embed (source = "../assets/audio/Crow_Death_1.mp3")] private var crowDeath1:Class;
 		[Embed (source = "../assets/audio/Crow_Death_1.mp3")] private var crowDeath2:Class;
 		[Embed (source = "../assets/audio/Crow_Death_1.mp3")] private var crowDeath3:Class;
@@ -30,7 +30,7 @@ package
 			super(x, y);
 			this.loadGraphic(bird_img, true, true, 64, 64);
 			this.addAnimation("Fly", [0, 1], 6, true);
-			this.addAnimation("Crash", [2, 3], 10, false);
+			this.addAnimation("Crash", [2, 3, 4, 5, 6, 7], 10, false);
 			
 			switch (Math.floor(FlxG.random() * 3)) {
 				case 0:
@@ -77,6 +77,8 @@ package
 				//if the animation has finished, dissapear
 				if (this.finished)
 					this.kill();
+				else
+					y += FLY_SPEED;
 			}
 			super.update();
 		}

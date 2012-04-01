@@ -64,7 +64,7 @@ package
 		public function update():void
 		{
 			timeInLevel += FlxG.elapsed;
-			if (isVictoryLevel== false)
+			if (isVictoryLevel == false)
 			{
 				if (player.y <= endpoint)
 				{
