@@ -12,7 +12,13 @@ package
 		public static const LEVEL_COUNT:int = 14;
 		
 		[Embed (source = "../assets/victory.png")] private var victory_img:Class;
-		
+
+		[Embed (source = "../assets/backgroundDay.png")] private var background_day_img:Class;
+		[Embed (source = "../assets/backgroundNightScraper.png")] private var background_night_scraper_img:Class;
+
+		[Embed (source = "../assets/balcony.png")] private var balcony_img:Class;
+		[Embed (source = "../assets/balcony2.png")] private var balcony2_img:Class;
+
 		public function WorldCity() 
 		{
 			player = new Player(Player.START_X, Player.START_ALTITUDE);
@@ -23,7 +29,8 @@ package
 			levels = new Vector.<Level>;
 			for (i = 0; i < LEVEL_COUNT; i++) 
 			{
-				levels.push(new Level(i, eventsForLevel(i), helpTextForLevel(i), balconiesForLevel(i), player));
+				levels.push(new Level(i, eventsForLevel(i), helpTextForLevel(i), balconiesForLevel(i), player, 
+									background_night_scraper_img));
 			}
 			//Add the victory level and image here.
 			levels[LEVEL_COUNT - 1].isVictoryLevel = true;
@@ -133,21 +140,21 @@ package
 					
 					break;
 				case 1:
-					balconies.add(new Balcony(BALC_LEFT, BALC_Y3));
+					balconies.add(new Balcony(BALC_LEFT, BALC_Y3, balcony2_img));
 					break;
 				case 2:
-					balconies.add(new Balcony(BALC_RIGHT, BALC_Y3));
+					balconies.add(new Balcony(BALC_RIGHT, BALC_Y3, balcony2_img));
 					break;
 				case 3:
-					balconies.add(new Balcony(BALC_LEFT, BALC_Y4));
-					balconies.add(new Balcony(BALC_RIGHT, BALC_Y2));
+					balconies.add(new Balcony(BALC_LEFT, BALC_Y4, balcony2_img));
+					balconies.add(new Balcony(BALC_RIGHT, BALC_Y2, balcony2_img));
 					break;
 				case 4:
-					balconies.add(new Balcony(BALC_RIGHT, BALC_Y4));
-					balconies.add(new Balcony(BALC_LEFT, BALC_Y2));
+					balconies.add(new Balcony(BALC_RIGHT, BALC_Y4, balcony2_img));
+					balconies.add(new Balcony(BALC_LEFT, BALC_Y2, balcony2_img));
 					break;
 				case 5:
-					balconies.add(new Balcony(BALC_RIGHT, BALC_Y3));
+					balconies.add(new Balcony(BALC_RIGHT, BALC_Y3, balcony2_img));
 					break;
 				case 6:
 					
@@ -156,10 +163,10 @@ package
 					
 					break;
 				case 8:
-					balconies.add(new Balcony(BALC_RIGHT, BALC_Y3));
+					balconies.add(new Balcony(BALC_RIGHT, BALC_Y3, balcony2_img));
 					break;
 				case 9:
-					balconies.add(new Balcony(BALC_LEFT, BALC_Y3));
+					balconies.add(new Balcony(BALC_LEFT, BALC_Y3, balcony2_img));
 					break;
 				case 10:
 					
@@ -168,13 +175,12 @@ package
 					
 					break;
 				case 12:
-					balconies.add(new Balcony(BALC_LEFT, BALC_Y5));
+					balconies.add(new Balcony(BALC_LEFT, BALC_Y5, balcony2_img));
 					break;
 				default:
 					
 					break;
 			}
-
 			return balconies;
 		}
 	}
