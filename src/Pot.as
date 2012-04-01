@@ -9,7 +9,7 @@ package
 	 */
 	public class Pot extends EnemyProjectile
 	{
-		[Embed (source = "../assets/audio/pot_smash.mp3")] private var potSmash:Class;
+		[Embed (source = "../assets/audio/pot_smash-2.mp3")] private var potSmash:Class;
 		[Embed (source = "../assets/audio/Whoosh-3.mp3")] private var whoosh:Class;
 		
 		// a floating-point multiplier for the pot's falling speed.
