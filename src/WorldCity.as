@@ -1,5 +1,6 @@
 package  
 {
+	import org.flixel.FlxGroup;
 	/**
 	 * ...
 	 * @author JR
@@ -20,7 +21,7 @@ package
 			levels = new Vector.<Level>;
 			for (i = 0; i < 10; i++) 
 			{
-				levels.push(new Level(i, eventsForLevel(i), helpTextForLevel(i)));
+				levels.push(new Level(i, eventsForLevel(i), helpTextForLevel(i), balconiesForLevel(i)));
 			}
 		}
 		
@@ -81,6 +82,24 @@ package
 			return helpText;
 		}
 		
-	}
+		private function balconiesForLevel(i:int):FlxGroup
+		{
+			var balconies:FlxGroup = new FlxGroup();
+			
+			switch (i)
+			{
+				case 0:
+					balconies.add(new Balcony(0, 200));
+					break;
+				case 1:
+					
+					break;
+				default:
+					
+					break;
+			}
 
+			return balconies;
+		}
+	}
 }

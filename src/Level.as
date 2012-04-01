@@ -35,7 +35,7 @@ package
 		[Embed (source = "../assets/backgroundDay.png")] private var background_day_img:Class;
 		public var background:FlxSprite;		//Background image.
 		
-		public function Level(i:int, theEvents:EventList, theHelpText:HelpText) 
+		public function Level(i:int, theEvents:EventList, theHelpText:HelpText, theBalconyGroup:FlxGroup) 
 		{
 			helpText = theHelpText;
 			events = theEvents;
@@ -44,8 +44,7 @@ package
 			endpoint = 10;
 			rope = new Rope(270, 0);
 			player = new Player(240, 700);
-			balconyGroup = new FlxGroup();
-			balconyGroup.add(new Balcony(0, 200));
+			balconyGroup = theBalconyGroup;
 			group = new FlxGroup();
 			group.add(rope);
 			group.add(player);
