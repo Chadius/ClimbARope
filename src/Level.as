@@ -35,7 +35,7 @@ package
 		[Embed (source = "../assets/backgroundDay.png")] private var background_day_img:Class;
 		public var background:FlxSprite;		//Background image.
 		
-		public function Level(i:int, theEvents:EventList, theHelpText:HelpText, theBalconyGroup:FlxGroup) 
+		public function Level(i:int, theEvents:EventList, theHelpText:HelpText, theBalconyGroup:FlxGroup, thePlayer:Player) 
 		{
 			helpText = theHelpText;
 			events = theEvents;
@@ -43,14 +43,13 @@ package
 			levelComplete = false;
 			endpoint = 10;
 			rope = new Rope(270, 0);
-			player = new Player(240, 700);
+			player = thePlayer;
+			//player.y = Player.START_ALTITUDE;
 			balconyGroup = theBalconyGroup;
 			group = new FlxGroup();
 			group.add(rope);
 			group.add(player);
 			EnemyProjectiles = new FlxGroup();
-			EnemyProjectiles.add(new Pot(200, 0));
-			EnemyProjectiles.add(new Bird(0, 400));
 			//Load the background
 			background = new FlxSprite(0, 0, background_day_img);
 			timeInLevel = 0;
@@ -61,7 +60,7 @@ package
 		public function update():void
 		{
 			timeInLevel += FlxG.elapsed;
-			if (player.y <= endpoint)
+			if (player.y <= endpoint || FlxG.keys.SPACE) // level skip cheat (Spacebar)
 			{
 				levelComplete = true;
 			}
@@ -106,8 +105,8 @@ package
 			testTextField.draw();
 			group.draw();
 			helpText.draw();
-			EnemyProjectiles.draw();
 			balconyGroup.draw();
+			EnemyProjectiles.draw();
 		}
 		
 		private function collidePlayerProjectile(p:Player, proj:EnemyProjectile):void

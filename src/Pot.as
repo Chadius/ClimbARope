@@ -12,7 +12,7 @@ package
 		[Embed (source = "../assets/pot.png")] private var pot_img:Class;
 		
 		// a floating-point multiplier for the pot's falling speed.
-		public static const FALL_SPEED:Number = 3.0;
+		public static const FALL_SPEED:Number = 5.0;
 		public var broken:Boolean = false;
 		
 		public function Pot(x:int, y:int) 

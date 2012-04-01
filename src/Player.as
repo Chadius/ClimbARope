@@ -8,7 +8,9 @@ package
 		[Embed (source = "../assets/tracy.png")] private var player_img:Class;
 		
 		public static const CLIMB_SPEED:Number = 3.0;	// a floating-point multiplier for the player's speed
-		public static const FALL_SPEED:Number = 1.0;
+		public static const FALL_SPEED:Number = 6.0;
+		public static const START_ALTITUDE:int = 700;
+		public static const START_X:int = 240;
 		public var hasFailed:Boolean = false;
 		
 		public function Player(x:int, y:int)
@@ -17,7 +19,7 @@ package
 			super(x, y);
 			this.loadGraphic(player_img, true, true, 128, 128);
 			this.addAnimation("Climb", [1, 0], 6, false);
-			this.addAnimation("Fail", [2, 3], 15, true);
+			this.addAnimation("Fail", [2, 3], 10, true);
 			this.facing = RIGHT;
 		}
 
