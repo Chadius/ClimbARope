@@ -17,5 +17,7 @@ potBreak03.png \
 
 cp backgroundDay.png ../assets/
 
+cp victory.png ../assets/
+
 #Post processing
 cd ..

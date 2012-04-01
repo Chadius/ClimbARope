@@ -15,7 +15,7 @@ package
 		public static const FROM_LEFT:int = -20;
 		public static const FROM_RIGHT:int = 500;
 		
-		[Embed (source = "../assets/backgroundDay.png")] private var victory_img:Class;
+		[Embed (source = "../assets/victory.png")] private var victory_img:Class;
 		
 		public function WorldCity() 
 		{
