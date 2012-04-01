@@ -34,8 +34,8 @@ package
 		public var resetTimerElapsed:Number;			//the total time spent waiting for a reset
 			
 		[Embed (source = "../assets/audio/Victory_1.mp3")] private var victorySound:Class;
-		[Embed (source = "../assets/window.png")] private var window_img:Class;
 		public var windowGroup:FlxGroup;
+		public var window_img:Class;
 		
 		public var background:FlxSprite;		//Background image.
 		
@@ -43,7 +43,7 @@ package
 		public var victoryImage:FlxSprite;
 		
 		public function Level(i:int, theEvents:EventList, theHelpText:HelpText, theBalconyGroup:FlxGroup, 
-							thePlayer:Player, background_img:Class) 
+							thePlayer:Player, background_img:Class, theWindowsGroup:FlxGroup, thewindow_img:Class) 
 		{
 			helpText = theHelpText;
 			events = theEvents;
@@ -65,6 +65,8 @@ package
 			resetTimerCountdown = false;
 			resetTimerElapsed = 0;
 			//And the windows
+			windowGroup = theWindowsGroup;
+			window_img = thewindow_img;
 			makeWindows();
 		}
 		
@@ -164,7 +166,6 @@ package
 		public function makeWindows():void
 		{
 			//Place a window at each balcony.
-			windowGroup = new FlxGroup();
 			var i:int;
 			for (i = 0; i < this.balconyGroup.length; i++)
 			{

@@ -19,9 +19,11 @@ package
 		
 		[Embed (source = "../assets/balcony.png")] private var balcony_img:Class;
 		[Embed (source = "../assets/balcony2.png")] private var balcony2_img:Class;
-
+		
 		[Embed (source = "../assets/pot.png")] private var pot_img:Class;
 		[Embed (source = "../assets/pot2.png")] private var pot2_img:Class;
+		
+		[Embed (source = "../assets/window.png")] private var window_img:Class;
 		
 		public function WorldCity() 
 		{
@@ -34,7 +36,7 @@ package
 			for (i = 0; i < LEVEL_COUNT; i++) 
 			{
 				levels.push(new Level(i, eventsForLevel(i), helpTextForLevel(i), balconiesForLevel(i), player, 
-									background_brix_img));
+									background_brix_img, windowsForLevel(i), window_img));
 			}
 			//Add the victory level and image here.
 			levels[LEVEL_COUNT - 1].isVictoryLevel = true;
@@ -186,6 +188,45 @@ package
 					break;
 			}
 			return balconies;
+		}
+		
+		private function windowsForLevel(i:int):FlxGroup
+		{
+			var windows:FlxGroup = new FlxGroup();
+			
+			switch (i)
+			{
+				case 0:
+					windows.add(new FlxSprite(BALC_LEFT, BALC_Y1, window_img));
+					break;
+				case 1:
+					break;
+				case 2:
+					break;
+				case 3:
+					break;
+				case 4:
+					break;
+				case 5:
+					break;
+				case 6:
+					break;
+				case 7:
+					break;
+				case 8:
+					break;
+				case 9:
+					break;
+				case 10:
+					break;
+				case 11:
+					break;
+				case 12:
+					break;
+				default:
+					break;
+			}
+			return windows;
 		}
 	}
 }
