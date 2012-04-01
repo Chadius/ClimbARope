@@ -20,9 +20,10 @@ package
 		[Embed (source = "../assets/audio/Caw_3.mp3")] private var caw3:Class;
 		
 		// a floating-point multiplier for the bird's flying speed.
-		public static const FLY_SPEED:Number = 1.0;
+		public static const FLY_SPEED:Number = 6.0;
 		public var crashed:Boolean = false;
 		public var flyToTheRight:Boolean;
+		public var hasCawed:Boolean;
 		
 		public function Bird(x:int, y:int) 
 		{
@@ -30,21 +31,8 @@ package
 			super(x, y);
 			this.loadGraphic(bird_img, true, true, 64, 64);
 			this.addAnimation("Fly", [0, 1], 6, true);
-			this.addAnimation("Crash", [2, 3, 4, 5, 6, 7], 10, false);
-			
-			switch (Math.floor(FlxG.random() * 3)) {
-				case 0:
-					FlxG.play(caw1);
-					break;
-				case 1:
-					FlxG.play(caw2);
-					break;
-				case 2:
-					FlxG.play(caw3);
-					break;
-				default:
-					break;
-			}
+			this.addAnimation("Crash", [2, 3, 4, 5, 6, 7], 10, false);			
+			hasCawed = false;
 			
 			//Determine facing
 			if (x < 270)
@@ -79,6 +67,23 @@ package
 					this.kill();
 				else
 					y += FLY_SPEED;
+			}
+			
+			if (!hasCawed) {
+				hasCawed = true;
+				switch (Math.floor(FlxG.random() * 3)) {
+				case 0:
+					FlxG.play(caw1);
+					break;
+				case 1:
+					FlxG.play(caw2);
+					break;
+				case 2:
+					FlxG.play(caw3);
+					break;
+				default:
+					break;
+				}
 			}
 			super.update();
 		}

@@ -30,5 +30,7 @@ cp backgroundDay.png ../assets/
 
 cp victory.png ../assets/
 
+cp balcony.png ../assets/
+
 #Post processing
 cd ..

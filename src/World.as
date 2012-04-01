@@ -10,10 +10,34 @@ package
 	{
 		public var levels:Vector.<Level>;				//refers to all the levels within the world
 		public var currentLevel:Level;					//refers to the currently active level
+		public var player:Player;
+		
+		public static const ROPE_RIGHT:int = 300;
+		public static const ROPE_LEFT:int = 220;
+		public static const FAR_RIGHT:int = 450;
+		public static const FAR_LEFT:int = 70;
+		
+		public static const FROM_ABOVE:int = -20;
+		public static const FROM_LEFT:int = -20;
+		public static const FROM_RIGHT:int = 560;
+		
+		public static const TEXT_LEFT:int = 100;
+		public static const TEXT_RIGHT:int = 400;
+		public static const TEXT_LOW:int = 600;
+		public static const TEXT_MID:int = 300;
+		public static const TEXT_HIGH:int = 100;
+		
+		public static const BALC_LEFT:int = 0;
+		public static const BALC_RIGHT:int = 340;
+		public static const BALC_Y5:int = 600;
+		public static const BALC_Y4:int = 475;
+		public static const BALC_Y3:int = 350;
+		public static const BALC_Y2:int = 225;
+		public static const BALC_Y1:int = 100;
 		
 		public function WorldState():void
 		{
-
+			
 		}
 		
 		override public function create():void
@@ -25,6 +49,7 @@ package
 		{
 			if (currentLevel.levelComplete)
 			{
+				player.y = Player.START_ALTITUDE;
 				nextLevel();
 			}
 			else
