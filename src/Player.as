@@ -9,6 +9,7 @@ package
 		
 		public static const CLIMB_SPEED:Number = 3.0;	// a floating-point multiplier for the player's speed
 		public static const FALL_SPEED:Number = 6.0;
+		public static const SLIP_SPEED:Number = -0.2;
 		public static const START_ALTITUDE:int = 700;
 		public static const START_X:int = 200;
 		public var hasFailed:Boolean = false;
@@ -44,6 +45,9 @@ package
 				if ( FlxG.keys.RIGHT && this.facing != LEFT)
 				{
 					this.flip();
+				}
+				if ( !(FlxG.keys.UP || FlxG.keys.DOWN) && y != 700) {
+					y -= SLIP_SPEED;
 				}
 			}
 			else
