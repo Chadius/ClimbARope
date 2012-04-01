@@ -21,8 +21,8 @@ package
 		public static const FROM_LEFT:int = -20;
 		public static const FROM_RIGHT:int = 560;
 		
-		public static const TEXT_LEFT:int = 100;
-		public static const TEXT_RIGHT:int = 400;
+		public static const TEXT_LEFT:int = 50;
+		public static const TEXT_RIGHT:int = 350;
 		public static const TEXT_LOW:int = 600;
 		public static const TEXT_MID:int = 300;
 		public static const TEXT_HIGH:int = 100;
