@@ -7,7 +7,7 @@ package
 		// Embed the player's image in the swf
 		[Embed (source = "../assets/tracy.png")] private var player_img:Class;
 		[Embed (source = "../assets/audio/PlayerDeath.mp3")] private var deathSound:Class;
-		
+
 		public static const CLIMB_SPEED:Number = 3.0;	// a floating-point multiplier for the player's speed
 		public static const FALL_SPEED:Number = 6.0;
 		public static const SLIP_SPEED:Number = -0.5;	// the player's natural slip rate due to slippery rope
@@ -71,6 +71,7 @@ package
 				this.hasFailed = true;
 				this.play("Fail");
 				FlxG.play(deathSound);
+				FlxG.music.fadeOut(0.5);
 			}
 			
 		}
