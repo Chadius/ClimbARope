@@ -9,7 +9,8 @@ package
 		private var exitButton:FlxButton;
 		private var demoButton:FlxButton;
 		private var activeButton:int;
-		private var startInstructions:HelpText;
+		private var startInstructions:MenuText;
+		private var creditsInstructions:MenuText;
 		
 		private static const DEMO_BUTTON:int = 0;
 		private static const START_BUTTON:int = 1;
@@ -22,22 +23,21 @@ package
 
 		override public function create():void
 		{
-			FlxG.mouse.show();
-			demoButton = new FlxButton(90, 200, "Demo", demoMode);
-			startButton = new FlxButton(90, 225, "Start Game", startGame);
-			creditsButton = new FlxButton(90, 250, "Credits", showCredits);
-			startInstructions = new HelpText("Press Enter or Space to start.", 90, 400);
-			add(demoButton);
-			add(startButton);
-			add(creditsButton);
+			FlxG.mouse.hide();
+			startInstructions = new MenuText("Press Enter to start.", 90, 400, 0xAADDDDDD);
+			creditsInstructions = new MenuText("Press C to view credits.", 90, 600, 0xAADD3333);
 			add(startInstructions.textField);
+			add(creditsInstructions.textField);
 			activeButton = 1;
 		}
 		
 		override public function update():void 
 		{
-			if (FlxG.keys.ENTER || FlxG.keys.SPACE) {
+			if (FlxG.keys.ENTER) {
 				startGame();
+			}
+			if (FlxG.keys.C) {
+				showCredits();
 			}
 			super.update();
 		}
