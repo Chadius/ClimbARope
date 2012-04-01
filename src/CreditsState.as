@@ -40,7 +40,7 @@ package
 			for each(mt in creditList2)
 				add(mt.textField);
 				
-			creditList3.push(new MenuText("And most importantly, YOU!", 300, 600, 0xDADD33));
+			creditList3.push(new MenuText("And most importantly, YOU!", 100, 600, 0xDADD33));
 			for each(mt in creditList3)
 				add(mt.textField);
 				
