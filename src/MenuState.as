@@ -40,7 +40,7 @@ package
 		private function showCredits():void
 		{
 			FlxG.mouse.hide();
-			FlxG.switchState(new PlayState);
+			FlxG.switchState(new CreditsState);
 		}
 	}
 }
