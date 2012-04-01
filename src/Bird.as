@@ -1,5 +1,7 @@
 package  
 {
+	import org.flixel.*;
+
 	/**
 	 * ...
 	 * @author Chad Serrant
@@ -10,6 +12,9 @@ package
 	{
 		// Embed the player's image in the swf
 		[Embed (source = "../assets/pot.png")] private var bird_img:Class;
+		[Embed (source = "../assets/audio/Crow_Death_1.mp3")] private var crowDeath1:Class;
+		[Embed (source = "../assets/audio/Crow_Death_1.mp3")] private var crowDeath2:Class;
+		[Embed (source = "../assets/audio/Crow_Death_1.mp3")] private var crowDeath3:Class;
 		
 		// a floating-point multiplier for the bird's flying speed.
 		public static const FLY_SPEED:Number = 1.0;
@@ -65,6 +70,20 @@ package
 				return;
 			this.crashed = true;
 			this.play("Crash");
+		
+		switch (Math.floor(FlxG.random() * 3)) {
+			case 0:
+				FlxG.play(crowDeath1);
+				break;
+			case 1:
+				FlxG.play(crowDeath2);
+				break;
+			case 2:
+				FlxG.play(crowDeath3);
+				break;
+			default:
+				break;
+		}
 		}
 	}
 }
