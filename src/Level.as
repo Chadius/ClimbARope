@@ -45,7 +45,6 @@ package
 			rope = new Rope(270, 0);
 			player = new Player(240, 700);
 			balconyGroup = theBalconyGroup;
-			balconyGroup.add(new Balcony(0, 200))
 			group = new FlxGroup();
 			group.add(rope);
 			group.add(player);
