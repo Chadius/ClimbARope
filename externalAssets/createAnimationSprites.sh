@@ -43,5 +43,7 @@ cp credits.png ../assets/
 cp balcony.png ../assets/
 cp balcony2.png ../assets/
 
+cp window.png ../assets/
+
 #Post processing
 cd ..

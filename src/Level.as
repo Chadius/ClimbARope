@@ -34,6 +34,8 @@ package
 		public var resetTimerElapsed:Number;			//the total time spent waiting for a reset
 			
 		[Embed (source = "../assets/audio/Victory_1.mp3")] private var victorySound:Class;
+		[Embed (source = "../assets/window.png")] private var window_img:Class;
+		public var windowGroup:FlxGroup;
 		
 		public var background:FlxSprite;		//Background image.
 		
@@ -62,6 +64,8 @@ package
 			timeInLevel = 0;
 			resetTimerCountdown = false;
 			resetTimerElapsed = 0;
+			//And the windows
+			makeWindows();
 		}
 		
 		public function update():void
@@ -104,7 +108,6 @@ package
 			//Reset the level after waiting long enough.
 			if (resetTimerCountdown == true || isVictoryLevel == true)
 			{
-								
 				if (isVictoryLevel && !victorySoundHasPlayed) {
 					FlxG.play(victorySound);
 					victorySoundHasPlayed = true;
@@ -121,8 +124,9 @@ package
 			{
 				victoryImage.draw();
 				return;
-			}			
+			}
 			background.draw();
+			windowGroup.draw();
 			testTextField.draw();
 			group.draw();
 			helpText.draw();
@@ -155,6 +159,32 @@ package
 		{
 			if (FlxCollision.pixelPerfectCheck(proj, balcony) && !(proj is Bird))
 				proj.fail();
+		}
+
+		public function makeWindows():void
+		{
+			windowGroup = new FlxGroup();
+			makeWindowsHelper(20);
+			makeWindowsHelper(400);
+		}
+
+		public function makeWindowsHelper(windowX:int):void
+		{
+			var windowY:int;
+			var windowWidth:int;
+			var windowHeight:int;
+			
+			windowY = -128;
+			windowWidth = 128;
+			windowHeight = 128;
+			
+			do
+			{
+				windowX += (FlxG.random() * windowWidth / 4.0) - (windowWidth / 8.0);
+				windowY += windowHeight + (FlxG.random() * windowHeight / 4.0) + windowHeight / 4.0;
+				
+				windowGroup.add(new FlxSprite(windowX, windowY, window_img));
+			} while (windowY < 800)
 		}
 	}
 }
