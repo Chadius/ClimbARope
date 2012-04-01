@@ -35,6 +35,7 @@ birdCrash06.png \
 
 cp backgroundDay.png ../assets/
 cp backgroundNightScraper.png ../assets/
+cp backgroundBrix.png ../assets/
 
 cp victory.png ../assets/
 cp credits.png ../assets/

@@ -15,7 +15,8 @@ package
 
 		[Embed (source = "../assets/backgroundDay.png")] private var background_day_img:Class;
 		[Embed (source = "../assets/backgroundNightScraper.png")] private var background_night_scraper_img:Class;
-
+		[Embed (source = "../assets/backgroundBrix.png")] private var background_brix_img:Class;
+		
 		[Embed (source = "../assets/balcony.png")] private var balcony_img:Class;
 		[Embed (source = "../assets/balcony2.png")] private var balcony2_img:Class;
 
@@ -33,7 +34,7 @@ package
 			for (i = 0; i < LEVEL_COUNT; i++) 
 			{
 				levels.push(new Level(i, eventsForLevel(i), helpTextForLevel(i), balconiesForLevel(i), player, 
-									background_night_scraper_img));
+									background_brix_img));
 			}
 			//Add the victory level and image here.
 			levels[LEVEL_COUNT - 1].isVictoryLevel = true;
