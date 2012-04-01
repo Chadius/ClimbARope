@@ -20,7 +20,7 @@ package
 		override public function create():void
 		{
 			FlxG.mouse.show();
-			backToMenuInstructions = new MenuText("Press ESC to return to menu.", 90, 700, 0xAADD3333);
+			backToMenuInstructions = new MenuText("Press ESC to return to menu.", 70, 700, 0xAADD3333);
 			add(backToMenuInstructions.textField);
 			
 			var top:int = 50;
