@@ -117,6 +117,7 @@ package
 			if (resetTimerCountdown == true || isVictoryLevel == true)
 			{
 				if (isVictoryLevel && !victorySoundHasPlayed) {
+					FlxG.music.fadeOut(0.5);
 					FlxG.play(victorySound, 0.2);
 					victorySoundHasPlayed = true;
 				}
