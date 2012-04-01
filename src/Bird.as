@@ -20,7 +20,7 @@ package
 		[Embed (source = "../assets/audio/Caw_3.mp3")] private var caw3:Class;
 		
 		// a floating-point multiplier for the bird's flying speed.
-		public static const FLY_SPEED:Number = 1.0;
+		public static const FLY_SPEED:Number = 6.0;
 		public var crashed:Boolean = false;
 		public var flyToTheRight:Boolean;
 		

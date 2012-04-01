@@ -64,8 +64,28 @@ package
 					timedEvents.push(new TimedEvent(2.5, new Pot(ROPE_LEFT, FROM_ABOVE)));
 					break;
 				case 8:
+					positionEvents.push(new PositionEvent(500, new Pot(ROPE_LEFT, FROM_ABOVE)));
+					positionEvents.push(new PositionEvent(300, new Pot(ROPE_LEFT, FROM_ABOVE)));
 					break;
 				case 9:
+					positionEvents.push(new PositionEvent(500, new Pot(ROPE_RIGHT, FROM_ABOVE)));
+					positionEvents.push(new PositionEvent(300, new Pot(ROPE_RIGHT, FROM_ABOVE)));
+					positionEvents.push(new PositionEvent(200, new Pot(ROPE_LEFT, FROM_ABOVE)));
+					break;
+				case 10:
+					timedEvents.push(new TimedEvent(0.5, new Pot(ROPE_RIGHT, FROM_ABOVE)));
+					positionEvents.push(new PositionEvent(500, new Bird(FROM_LEFT, 300)));
+					break;
+				case 11:
+					positionEvents.push(new PositionEvent(700, new Bird(FROM_RIGHT, 600)));
+					positionEvents.push(new PositionEvent(500, new Bird(FROM_LEFT, 400)));
+					positionEvents.push(new PositionEvent(300, new Bird(FROM_RIGHT, 200)));
+					break;
+				case 12:
+					positionEvents.push(new PositionEvent(700, new Bird(FROM_LEFT, 650)));
+					positionEvents.push(new PositionEvent(575, new Bird(FROM_LEFT, 525)));
+					positionEvents.push(new PositionEvent(450, new Bird(FROM_LEFT, 400)));
+					positionEvents.push(new PositionEvent(325, new Bird(FROM_LEFT, 275)));
 					break;
 				default:
 					break;
