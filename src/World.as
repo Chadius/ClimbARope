@@ -25,7 +25,7 @@ package
 		
 		public static const TEXT_LEFT:int = 40;
 		public static const TEXT_RIGHT:int = 350;
-		public static const TEXT_LOW:int = 600;
+		public static const TEXT_LOW:int = 550;
 		public static const TEXT_MID:int = 300;
 		public static const TEXT_HIGH:int = 100;
 		
