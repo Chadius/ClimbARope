@@ -14,7 +14,7 @@ package
 		override public function create():void
 		{
 
-			rope = new Rope(400, 0);
+			rope = new Rope(400, 0, FlxG.height);
 			add(rope);
 			
 			player = new Player(360, 400);

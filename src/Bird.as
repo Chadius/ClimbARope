@@ -13,8 +13,8 @@ package
 		// Embed the player's image in the swf
 		[Embed (source = "../assets/bird.png")] private var bird_img:Class;
 		[Embed (source = "../assets/audio/Crow_Death_1.mp3")] private var crowDeath1:Class;
-		[Embed (source = "../assets/audio/Crow_Death_1.mp3")] private var crowDeath2:Class;
-		[Embed (source = "../assets/audio/Crow_Death_1.mp3")] private var crowDeath3:Class;
+		[Embed (source = "../assets/audio/Crow_Death_2.mp3")] private var crowDeath2:Class;
+		[Embed (source = "../assets/audio/Crow_Death_3.mp3")] private var crowDeath3:Class;
 		[Embed (source = "../assets/audio/Caw_1.mp3")] private var caw1:Class;
 		[Embed (source = "../assets/audio/Caw_2.mp3")] private var caw2:Class;
 		[Embed (source = "../assets/audio/Caw_3.mp3")] private var caw3:Class;

@@ -34,7 +34,7 @@ package
 		public var resetTimerElapsed:Number;			//the total time spent waiting for a reset
 			
 		[Embed (source = "../assets/audio/Victory_1.mp3")] private var victorySound:Class;
-		[Embed (source = "../assets/audio/Pivot-2.mp3")] private var pivotSound:Class;
+		[Embed (source = "../assets/audio/Pivot_Final.mp3")] private var pivotSound:Class;
 
 		public var windowGroup:FlxGroup;
 		public var window_img:Class;
@@ -45,7 +45,8 @@ package
 		public var victoryImage:FlxSprite;
 		
 		public function Level(i:int, theEvents:EventList, theHelpText:HelpText, theBalconyGroup:FlxGroup, 
-							thePlayer:Player, background_img:Class, theWindowsGroup:FlxGroup, thewindow_img:Class) 
+							thePlayer:Player, background_img:Class, theWindowsGroup:FlxGroup, thewindow_img:Class,
+							ropeHeight:int) 
 		{
 			helpText = theHelpText;
 			events = theEvents;
@@ -53,7 +54,7 @@ package
 			levelComplete = false;
 			victorySoundHasPlayed = false;
 			endpoint = 10;
-			rope = new Rope(270, 0);
+			rope = new Rope(270, 0, ropeHeight);
 			player = thePlayer;
 			//player.y = Player.START_ALTITUDE;
 			balconyGroup = theBalconyGroup;
@@ -116,7 +117,7 @@ package
 			if (resetTimerCountdown == true || isVictoryLevel == true)
 			{
 				if (isVictoryLevel && !victorySoundHasPlayed) {
-					FlxG.play(victorySound);
+					FlxG.play(victorySound, 0.2);
 					victorySoundHasPlayed = true;
 				}
 				resetTimerElapsed += FlxG.elapsed;

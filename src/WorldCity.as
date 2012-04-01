@@ -1,7 +1,6 @@
 package  
 {
-	import org.flixel.FlxGroup;
-	import org.flixel.FlxSprite;
+	import org.flixel.*;
 
 	/**
 	 * ...
@@ -16,6 +15,7 @@ package
 		[Embed (source = "../assets/backgroundDay.png")] private var background_day_img:Class;
 		[Embed (source = "../assets/backgroundNightScraper.png")] private var background_night_scraper_img:Class;
 		[Embed (source = "../assets/backgroundBrix.png")] private var background_brix_img:Class;
+		[Embed(source="../assets/backgroundBrixTop.png")] private var background_brix_top:Class;
 		
 		[Embed (source = "../assets/balcony.png")] private var balcony_img:Class;
 		[Embed (source = "../assets/balcony2.png")] private var balcony2_img:Class;
@@ -36,7 +36,7 @@ package
 			for (i = 0; i < LEVEL_COUNT; i++) 
 			{
 				levels.push(new Level(i, eventsForLevel(i), helpTextForLevel(i), balconiesForLevel(i), player, 
-									background_brix_img, windowsForLevel(i), window_img));
+									getBackGroundImg(i), windowsForLevel(i), window_img, getRopeHeight(i)));
 			}
 			//Add the victory level and image here.
 			var victory_level:int = LEVEL_COUNT - 1;
@@ -279,6 +279,22 @@ package
 					break;
 			}
 			return windows;
+		}
+		
+		private function getBackGroundImg(i:int):Class 
+		{
+			if (i == 12) {
+				return background_brix_top;
+			}
+			return background_brix_img;
+		}
+		
+		private function getRopeHeight(i:int):int 
+		{
+			if (i == 12) {
+				return FlxG.height - 75;
+			}
+			return FlxG.height;
 		}
 	}
 }
