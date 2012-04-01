@@ -34,7 +34,7 @@ package
 		public var resetTimerElapsed:Number;			//the total time spent waiting for a reset
 			
 		[Embed (source = "../assets/audio/Victory_1.mp3")] private var victorySound:Class;
-		[Embed (source = "../assets/audio/Pivot-2.mp3")] private var pivotSound:Class;
+		[Embed (source = "../assets/audio/Pivot_Final.mp3")] private var pivotSound:Class;
 
 		public var windowGroup:FlxGroup;
 		public var window_img:Class;
@@ -117,7 +117,8 @@ package
 			if (resetTimerCountdown == true || isVictoryLevel == true)
 			{
 				if (isVictoryLevel && !victorySoundHasPlayed) {
-					FlxG.play(victorySound);
+					FlxG.music.fadeOut(0.5);
+					FlxG.play(victorySound, 0.2);
 					victorySoundHasPlayed = true;
 				}
 				resetTimerElapsed += FlxG.elapsed;

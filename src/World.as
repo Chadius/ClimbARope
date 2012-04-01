@@ -37,6 +37,14 @@ package
 		public static const BALC_Y2:int = 225;
 		public static const BALC_Y1:int = 100;
 		
+		public static const WINDOW_LEFT:int = 75;
+		public static const WINDOW_RIGHT:int = 375;
+		public static const WINDOW_Y5:int = 540;
+		public static const WINDOW_Y4:int = 415;
+		public static const WINDOW_Y3:int = 290;
+		public static const WINDOW_Y2:int = 165;
+		public static const WINDOW_Y1:int = 40;
+		
 		public function WorldState():void
 		{
 			
