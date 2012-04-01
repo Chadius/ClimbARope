@@ -9,8 +9,6 @@ package
 	 */
 	public class Pot extends EnemyProjectile
 	{
-		// Embed the player's image in the swf
-		[Embed (source = "../assets/pot.png")] private var pot_img:Class;
 		[Embed (source = "../assets/audio/pot_smash.mp3")] private var potSmash:Class;
 		[Embed (source = "../assets/audio/Whoosh.mp3")] private var whoosh:Class;
 		
@@ -19,7 +17,7 @@ package
 		public var broken:Boolean = false;
 		public var hasWhooshed:Boolean = false;
 		
-		public function Pot(x:int, y:int) 
+		public function Pot(x:int, y:int, pot_img:Class) 
 		{
 			// Make a FlxSprite at the given location, using our image
 			super(x, y);

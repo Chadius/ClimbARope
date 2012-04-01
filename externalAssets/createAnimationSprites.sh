@@ -16,6 +16,13 @@ potBreak03.png \
 ../assets/pot.png
 
 montage -background transparent -geometry "+0+0" \
+pot2.png \
+pot2Break01.png \
+pot2Break02.png \
+pot2Break03.png \
+../assets/pot2.png
+
+montage -background transparent -geometry "+0+0" \
 bird01.png \
 bird02.png \
 birdCrash01.png \
@@ -28,12 +35,15 @@ birdCrash06.png \
 
 cp backgroundDay.png ../assets/
 cp backgroundNightScraper.png ../assets/
+cp backgroundBrix.png ../assets/
 
 cp victory.png ../assets/
 cp credits.png ../assets/
 
 cp balcony.png ../assets/
 cp balcony2.png ../assets/
+
+cp window.png ../assets/
 
 #Post processing
 cd ..

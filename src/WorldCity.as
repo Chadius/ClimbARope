@@ -15,10 +15,14 @@ package
 
 		[Embed (source = "../assets/backgroundDay.png")] private var background_day_img:Class;
 		[Embed (source = "../assets/backgroundNightScraper.png")] private var background_night_scraper_img:Class;
-
+		[Embed (source = "../assets/backgroundBrix.png")] private var background_brix_img:Class;
+		
 		[Embed (source = "../assets/balcony.png")] private var balcony_img:Class;
 		[Embed (source = "../assets/balcony2.png")] private var balcony2_img:Class;
 
+		[Embed (source = "../assets/pot.png")] private var pot_img:Class;
+		[Embed (source = "../assets/pot2.png")] private var pot2_img:Class;
+		
 		public function WorldCity() 
 		{
 			player = new Player(Player.START_X, Player.START_ALTITUDE);
@@ -30,7 +34,7 @@ package
 			for (i = 0; i < LEVEL_COUNT; i++) 
 			{
 				levels.push(new Level(i, eventsForLevel(i), helpTextForLevel(i), balconiesForLevel(i), player, 
-									background_night_scraper_img));
+									background_brix_img));
 			}
 			//Add the victory level and image here.
 			levels[LEVEL_COUNT - 1].isVictoryLevel = true;
@@ -56,31 +60,31 @@ package
 				case 3:
 					break;
 				case 4:
-					positionEvents.push(new PositionEvent(500, new Pot(FAR_RIGHT, FROM_ABOVE)));
+					positionEvents.push(new PositionEvent(500, new Pot(FAR_RIGHT, FROM_ABOVE, pot2_img)));
 					break;
 				case 5:
-					positionEvents.push(new PositionEvent(500, new Pot(ROPE_LEFT, FROM_ABOVE)));
+					positionEvents.push(new PositionEvent(500, new Pot(ROPE_LEFT, FROM_ABOVE, pot2_img)));
 					break;
 				case 6:
-					timedEvents.push(new TimedEvent(1, new Pot(ROPE_LEFT, FROM_ABOVE)));
-					timedEvents.push(new TimedEvent(2, new Pot(ROPE_RIGHT, FROM_ABOVE)));
+					timedEvents.push(new TimedEvent(1, new Pot(ROPE_LEFT, FROM_ABOVE, pot2_img)));
+					timedEvents.push(new TimedEvent(2, new Pot(ROPE_RIGHT, FROM_ABOVE, pot2_img)));
 					break;
 				case 7:
-					timedEvents.push(new TimedEvent(0.5, new Pot(ROPE_LEFT, FROM_ABOVE)));
-					timedEvents.push(new TimedEvent(1.5, new Pot(ROPE_RIGHT, FROM_ABOVE)));
-					timedEvents.push(new TimedEvent(2.5, new Pot(ROPE_LEFT, FROM_ABOVE)));
+					timedEvents.push(new TimedEvent(0.5, new Pot(ROPE_LEFT, FROM_ABOVE, pot2_img)));
+					timedEvents.push(new TimedEvent(1.5, new Pot(ROPE_RIGHT, FROM_ABOVE, pot2_img)));
+					timedEvents.push(new TimedEvent(2.5, new Pot(ROPE_LEFT, FROM_ABOVE, pot2_img)));
 					break;
 				case 8:
-					positionEvents.push(new PositionEvent(500, new Pot(ROPE_LEFT, FROM_ABOVE)));
-					positionEvents.push(new PositionEvent(300, new Pot(ROPE_LEFT, FROM_ABOVE)));
+					positionEvents.push(new PositionEvent(500, new Pot(ROPE_LEFT, FROM_ABOVE, pot2_img)));
+					positionEvents.push(new PositionEvent(300, new Pot(ROPE_LEFT, FROM_ABOVE, pot2_img)));
 					break;
 				case 9:
-					positionEvents.push(new PositionEvent(500, new Pot(ROPE_RIGHT, FROM_ABOVE)));
-					positionEvents.push(new PositionEvent(300, new Pot(ROPE_RIGHT, FROM_ABOVE)));
-					positionEvents.push(new PositionEvent(200, new Pot(ROPE_LEFT, FROM_ABOVE)));
+					positionEvents.push(new PositionEvent(500, new Pot(ROPE_RIGHT, FROM_ABOVE, pot2_img)));
+					positionEvents.push(new PositionEvent(300, new Pot(ROPE_RIGHT, FROM_ABOVE, pot2_img)));
+					positionEvents.push(new PositionEvent(200, new Pot(ROPE_LEFT, FROM_ABOVE, pot2_img)));
 					break;
 				case 10:
-					timedEvents.push(new TimedEvent(0.5, new Pot(ROPE_RIGHT, FROM_ABOVE)));
+					timedEvents.push(new TimedEvent(0.5, new Pot(ROPE_RIGHT, FROM_ABOVE, pot2_img)));
 					positionEvents.push(new PositionEvent(500, new Bird(FROM_LEFT, 400)));
 					break;
 				case 11:
