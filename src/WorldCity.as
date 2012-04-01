@@ -26,12 +26,12 @@ package
 			for (i = 0; i < 10; i++) 
 			{
 				levels.push(new Level(i, eventsForLevel(i), helpTextForLevel(i), balconiesForLevel(i)));
-				if (i == 1)
-				{
-					levels[1].isVictoryLevel = true;
-					levels[1].victoryImage = new FlxSprite(0, 0, victory_img);
-				}
 			}
+			//Add the victory level and image here.
+			//levels[levels.length - 1].isVictoryLevel = true;
+			//levels[levels.length - 1].victoryImage = new FlxSprite(0, 0, victory_img);
+			levels[1].isVictoryLevel = true;
+			levels[1].victoryImage = new FlxSprite(0, 0, victory_img);
 		}
 		
 		private function eventsForLevel(i:int):EventList

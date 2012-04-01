@@ -99,7 +99,7 @@ package
 			}
 			
 			//Reset the level after waiting long enough.
-			if (resetTimerCountdown == true)
+			if (resetTimerCountdown == true || isVictoryLevel == true)
 			{
 				resetTimerElapsed += FlxG.elapsed;
 				if (resetTimerElapsed > resetTimerWait)
