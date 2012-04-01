@@ -10,9 +10,7 @@ package
 		
 		public function Balcony(x:int, y:int) 
 		{
-			super(x, y, balcony_img);
-			
+			super(x, y, balcony_img);			
 		}
 	}
-
 }

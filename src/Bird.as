@@ -88,19 +88,19 @@ package
 			this.crashed = true;
 			this.play("Crash");
 		
-		switch (Math.floor(FlxG.random() * 3)) {
-			case 0:
-				FlxG.play(crowDeath1);
-				break;
-			case 1:
-				FlxG.play(crowDeath2);
-				break;
-			case 2:
-				FlxG.play(crowDeath3);
-				break;
-			default:
-				break;
-		}
+			switch (Math.floor(FlxG.random() * 3)) {
+				case 0:
+					FlxG.play(crowDeath1);
+					break;
+				case 1:
+					FlxG.play(crowDeath2);
+					break;
+				case 2:
+					FlxG.play(crowDeath3);
+					break;
+				default:
+					break;
+			}
 		}
 	}
 }

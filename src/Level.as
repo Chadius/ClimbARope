@@ -88,7 +88,6 @@ package
 				//did they collide with player?
 				FlxG.overlap(player, EnemyProjectiles, collidePlayerProjectile);
 				FlxG.overlap(player, balconyGroup, collide_player_balcony);
-				player.x = rope.x + player.getRopeOffset();
 			}
 			
 			//Reset the level after waiting long enough.
