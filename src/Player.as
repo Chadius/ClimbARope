@@ -52,7 +52,8 @@ package
 			}
 			else
 				y += FALL_SPEED;
-			if (y >= 700) {
+			if (y >= 700 && !hasFailed)
+			{
 				y = 700;
 			}
 			super.update();
