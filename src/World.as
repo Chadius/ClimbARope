@@ -27,8 +27,8 @@ package
 		public static const TEXT_MID:int = 300;
 		public static const TEXT_HIGH:int = 100;
 		
-		public static const BALC_LEFT:int = 0;
-		public static const BALC_RIGHT:int = 340;
+		public static const BALC_LEFT:int = 20;
+		public static const BALC_RIGHT:int = 320;
 		public static const BALC_Y5:int = 600;
 		public static const BALC_Y4:int = 475;
 		public static const BALC_Y3:int = 350;
