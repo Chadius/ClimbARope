@@ -31,9 +31,12 @@ package
 		public var resetTimerCountdown:Boolean; //If this is on, start to count down
 		public var resetTimerWait:Number = 5.0; //Wait this long before resetting the game
 		public var resetTimerElapsed:Number;			//the total time spent waiting for a reset
-		
+			
 		[Embed (source = "../assets/backgroundDay.png")] private var background_day_img:Class;
 		public var background:FlxSprite;		//Background image.
+		
+		public var isVictoryLevel:Boolean;
+		public var victoryImage:FlxSprite;
 		
 		public function Level(i:int, theEvents:EventList, theHelpText:HelpText, theBalconyGroup:FlxGroup, thePlayer:Player) 
 		{
@@ -60,38 +63,42 @@ package
 		public function update():void
 		{
 			timeInLevel += FlxG.elapsed;
-			if (player.y <= endpoint || FlxG.keys.SPACE) // level skip cheat (Spacebar)
+			
+			if (isVictoryLevel== false)
 			{
-				levelComplete = true;
-			}
-			else
-			{
-				testTextField.update();
-				group.update();
-				balconyGroup.update();
-				//update everything
-				
-				//check event list for projectiles, add any relevant ones to the projectile list
-				var nextEvent:FlxSprite = null;
-				do
+				if (player.y <= endpoint || FlxG.keys.SPACE) // level skip cheat (Spacebar)
 				{
-					nextEvent = events.getNextSprite(timeInLevel, player.y);
-					if (nextEvent != null)
+					levelComplete = true;
+				}
+				else
+				{
+					testTextField.update();
+					group.update();
+					balconyGroup.update();
+					//update everything
+					
+					//check event list for projectiles, add any relevant ones to the projectile list
+					var nextEvent:FlxSprite = null;
+					do
 					{
-						EnemyProjectiles.add(nextEvent);
-					}
-				} while (nextEvent != null);
-				
-				//update projectiles
-				EnemyProjectiles.update();
-				//did they collide with player?
-				FlxG.overlap(player, EnemyProjectiles, collidePlayerProjectile);
-				FlxG.overlap(player, balconyGroup, collide_player_balcony);
-				player.x = rope.x + player.getRopeOffset();
+						nextEvent = events.getNextSprite(timeInLevel, player.y);
+						if (nextEvent != null)
+						{
+							EnemyProjectiles.add(nextEvent);
+						}
+					} while (nextEvent != null);
+					
+					//update projectiles
+					EnemyProjectiles.update();
+					//did they collide with player?
+					FlxG.overlap(player, EnemyProjectiles, collidePlayerProjectile);
+					FlxG.overlap(player, balconyGroup, collide_player_balcony);
+					FlxG.overlap(EnemyProjectiles, balconyGroup, collide_projectile_balcony);
+				}
 			}
 			
 			//Reset the level after waiting long enough.
-			if (resetTimerCountdown == true)
+			if (resetTimerCountdown == true || isVictoryLevel == true)
 			{
 				resetTimerElapsed += FlxG.elapsed;
 				if (resetTimerElapsed > resetTimerWait)
@@ -101,6 +108,11 @@ package
 		
 		public function draw():void
 		{
+			if (isVictoryLevel)
+			{
+				victoryImage.draw();
+				return;
+			}			
 			background.draw();
 			testTextField.draw();
 			group.draw();
@@ -126,6 +138,12 @@ package
 		public function collide_player_balcony(player:Player, balcony:Balcony):void 
 		{
 			player.collideWithBalcony(balcony);
+		}
+		
+		public function collide_projectile_balcony(proj:EnemyProjectile, balcony:Balcony):void 
+		{
+			if (FlxCollision.pixelPerfectCheck(proj, balcony))
+				proj.fail();
 		}
 	}
 }

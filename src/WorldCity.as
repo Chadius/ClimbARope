@@ -1,6 +1,8 @@
 package  
 {
 	import org.flixel.FlxGroup;
+	import org.flixel.FlxSprite;
+
 	/**
 	 * ...
 	 * @author JR
@@ -9,17 +11,23 @@ package
 	{
 		public static const LEVEL_COUNT:int = 13;
 		
+		[Embed (source = "../assets/victory.png")] private var victory_img:Class;
+		
 		public function WorldCity() 
 		{
 			player = new Player(Player.START_X, Player.START_ALTITUDE);
 
 			//Define each level in the world
+
 			var i:int;
 			levels = new Vector.<Level>;
 			for (i = 0; i < LEVEL_COUNT; i++) 
 			{
 				levels.push(new Level(i, eventsForLevel(i), helpTextForLevel(i), balconiesForLevel(i), player));
 			}
+			//Add the victory level and image here.
+			levels[LEVEL_COUNT - 1].isVictoryLevel = true;
+			levels[LEVEL_COUNT - 1].victoryImage = new FlxSprite(0, 0, victory_img);
 		}
 		
 		private function eventsForLevel(i:int):EventList

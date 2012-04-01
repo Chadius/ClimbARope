@@ -20,7 +20,7 @@ package
 		{
 			var nextEvent:LevelEvent = null;
 			var nextSprite:FlxSprite = null;
-			
+
 			if ((timedEvents.length != 0) &&
 				(timedEvents[0].goTime <= elapsed))
 			{

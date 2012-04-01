@@ -1,5 +1,6 @@
 package  
 {
+	import org.flixel.*;
 	/**
 	 * ...
 	 * @author Chad Serrant
@@ -10,6 +11,7 @@ package
 	{
 		// Embed the player's image in the swf
 		[Embed (source = "../assets/pot.png")] private var pot_img:Class;
+		[Embed (source = "../assets/audio/pot_smash.mp3")] private var potSmash:Class;
 		
 		// a floating-point multiplier for the pot's falling speed.
 		public static const FALL_SPEED:Number = 5.0;
@@ -49,6 +51,7 @@ package
 				return;
 			this.broken = true;
 			this.play("Break");
+			FlxG.play(potSmash);
 		}
 	}
 }
