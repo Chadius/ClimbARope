@@ -10,7 +10,8 @@ package
 		
 		public static const CLIMB_SPEED:Number = 3.0;	// a floating-point multiplier for the player's speed
 		public static const FALL_SPEED:Number = 6.0;
-		public static const SLIP_SPEED:Number = -0.5;
+		public static const SLIP_SPEED:Number = -0.5;	// the player's natural slip rate due to slippery rope
+		public static const SLIDE_SPEED:Number = 7.0;	// the player's speed when deliberately sliding down
 		public static const START_ALTITUDE:int = 700;
 		public static const START_X:int = 200;
 		public static const LEFT_POSITION:int = 200;
@@ -40,7 +41,7 @@ package
 				}
 				if ( FlxG.keys.DOWN )
 				{
-					y += CLIMB_SPEED * 2;
+					y += SLIDE_SPEED;
 				}
 				if ( FlxG.keys.LEFT && this.facing != RIGHT)
 				{
