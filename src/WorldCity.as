@@ -9,7 +9,7 @@ package
 	 */
 	public class WorldCity extends World 
 	{
-		public static const LEVEL_COUNT:int = 13;
+		public static const LEVEL_COUNT:int = 14;
 		
 		[Embed (source = "../assets/victory.png")] private var victory_img:Class;
 		
@@ -74,7 +74,7 @@ package
 					break;
 				case 10:
 					timedEvents.push(new TimedEvent(0.5, new Pot(ROPE_RIGHT, FROM_ABOVE)));
-					positionEvents.push(new PositionEvent(500, new Bird(FROM_LEFT, 300)));
+					positionEvents.push(new PositionEvent(500, new Bird(FROM_LEFT, 400)));
 					break;
 				case 11:
 					positionEvents.push(new PositionEvent(700, new Bird(FROM_RIGHT, 600)));
@@ -82,10 +82,10 @@ package
 					positionEvents.push(new PositionEvent(300, new Bird(FROM_RIGHT, 200)));
 					break;
 				case 12:
-					positionEvents.push(new PositionEvent(700, new Bird(FROM_LEFT, 650)));
-					positionEvents.push(new PositionEvent(575, new Bird(FROM_LEFT, 525)));
-					positionEvents.push(new PositionEvent(450, new Bird(FROM_LEFT, 400)));
-					positionEvents.push(new PositionEvent(325, new Bird(FROM_LEFT, 275)));
+					positionEvents.push(new PositionEvent(550, new Bird(FROM_LEFT, 550)));
+					positionEvents.push(new PositionEvent(425, new Bird(FROM_LEFT, 425)));
+					positionEvents.push(new PositionEvent(300, new Bird(FROM_LEFT, 300)));
+					positionEvents.push(new PositionEvent(175, new Bird(FROM_LEFT, 175)));
 					break;
 				default:
 					break;
@@ -101,22 +101,22 @@ package
 			switch (i)
 			{
 				case 0:
-					helpText = new HelpText("Press UP to climb!", TEXT_LEFT, TEXT_LOW, 50);
+					helpText = new HelpText("Press UP to climb!", TEXT_LEFT, TEXT_LOW);
 					break;
 				case 1:
-					helpText = new HelpText("Press RIGHT to pivot right!", TEXT_RIGHT, TEXT_MID, 50);
+					helpText = new HelpText("Press RIGHT to pivot right!", TEXT_RIGHT, TEXT_MID);
 					break;
 				case 2:
-					helpText = new HelpText("Press LEFT to pivot left!", TEXT_LEFT, TEXT_MID, 50);
+					helpText = new HelpText("Press LEFT to pivot left!", TEXT_LEFT, TEXT_MID);
 					break;
 				case 6:
-					helpText = new HelpText("Oh right. Watch out for pots.", TEXT_LEFT, TEXT_MID, 50);
+					helpText = new HelpText("Oh right. Watch out for pots.", TEXT_LEFT, TEXT_MID);
 					break;
 				case 6:
-					helpText = new HelpText("Those birds are dangerous!", TEXT_LEFT, TEXT_HIGH, 50);
+					helpText = new HelpText("Those birds are dangerous!", TEXT_LEFT, TEXT_HIGH);
 					break;
 				default:
-					helpText = new HelpText("", TEXT_LEFT, TEXT_MID, 50);
+					helpText = new HelpText("", TEXT_LEFT, TEXT_MID);
 					break;
 			}
 			

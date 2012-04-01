@@ -70,7 +70,7 @@ package
 			
 			if (isVictoryLevel== false)
 			{
-				if (player.y <= endpoint || FlxG.keys.SPACE) // level skip cheat (Spacebar)
+				if (player.y <= endpoint)// || FlxG.keys.SPACE) // level skip cheat (Spacebar)
 				{
 					levelComplete = true;
 				}
