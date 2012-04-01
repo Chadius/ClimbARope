@@ -13,7 +13,10 @@ package
 		public static const SLIP_SPEED:Number = -0.5;
 		public static const START_ALTITUDE:int = 700;
 		public static const START_X:int = 200;
+		public static const LEFT_POSITION:int = 200;
+		public static const RIGHT_POSITION:int = 244;
 		public var hasFailed:Boolean = false;
+		public var flipedThisTurn:Boolean = false;
 		
 		public function Player(x:int, y:int)
 		{
@@ -27,6 +30,7 @@ package
 
 		override public function update():void
 		{
+			flipedThisTurn = false;
 			if (this.hasFailed == false)
 			{
 				if ( FlxG.keys.UP )
@@ -64,28 +68,30 @@ package
 		{
 			this.hasFailed = true;
 			this.play("Fail");
-			FlxG.play(scream);
+			FlxG.play(scream, 0.4);
 			
 		}
 		
 		public function flip():void
 		{
+			flipedThisTurn = true;
 			if (this.facing == RIGHT) {
 				this.facing = LEFT;
-				this.x = 244;
+				this.x = RIGHT_POSITION;
 			} else {
 				this.facing = RIGHT;
-				this.x = 200;
+				this.x = LEFT_POSITION;
 			}
 		}
 		
 		public function collideWithBalcony(balcony:Balcony	):void 
 		{
-			if (this.overlapsAt(this.x, this.last.y, balcony)) {
+			if (flipedThisTurn) {
 				this.flip();
 			} else {
-				this.y = this.last.y;
+				this.y = this.last.y
 			}
+			
 		}
 	}
 }

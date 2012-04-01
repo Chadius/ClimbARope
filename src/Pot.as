@@ -10,10 +10,12 @@ package
 	public class Pot extends EnemyProjectile
 	{
 		[Embed (source = "../assets/audio/pot_smash.mp3")] private var potSmash:Class;
+		[Embed (source = "../assets/audio/Whoosh.mp3")] private var whoosh:Class;
 		
 		// a floating-point multiplier for the pot's falling speed.
 		public static const FALL_SPEED:Number = 5.0;
 		public var broken:Boolean = false;
+		public var hasWhooshed:Boolean = false;
 		
 		public function Pot(x:int, y:int, pot_img:Class) 
 		{
@@ -39,6 +41,10 @@ package
 				//if the animation has finished, dissapear
 				if (this.finished)
 					this.kill();
+			}
+			if (!hasWhooshed) {
+				hasWhooshed = true;
+				FlxG.play(whoosh);
 			}
 			super.update();
 		}
