@@ -19,6 +19,7 @@ package
 		public var events:EventList;			//refers to all timed and positionally-cued events: enemy and projectile spawns, etc.
 		public var EnemyProjectiles:FlxGroup;	//refers to all player and enemy projectiles
 		public var levelComplete:Boolean;		//true if and only if player reaches the endpoint
+		public var victorySoundHasPlayed:Boolean;//true once the victory sound has played
 		public var endpoint:int;				//the y-value the player needs to reach in order to complete the level
 		
 		public var testTextField:FlxText;
@@ -33,6 +34,8 @@ package
 		public var resetTimerElapsed:Number;			//the total time spent waiting for a reset
 			
 		[Embed (source = "../assets/backgroundDay.png")] private var background_day_img:Class;
+		[Embed (source = "../assets/audio/Victory_1.mp3")] private var victorySound:Class;
+		
 		public var background:FlxSprite;		//Background image.
 		
 		public var isVictoryLevel:Boolean;
@@ -44,6 +47,7 @@ package
 			events = theEvents;
 			testTextField = new FlxText(0, 0, 100, i.toString());
 			levelComplete = false;
+			victorySoundHasPlayed = false;
 			endpoint = 10;
 			rope = new Rope(270, 0);
 			player = thePlayer;
@@ -100,6 +104,11 @@ package
 			//Reset the level after waiting long enough.
 			if (resetTimerCountdown == true || isVictoryLevel == true)
 			{
+								
+				if (!victorySoundHasPlayed) {
+					FlxG.play(victorySound);
+					victorySoundHasPlayed = true;
+				}
 				resetTimerElapsed += FlxG.elapsed;
 				if (resetTimerElapsed > resetTimerWait)
 					FlxG.switchState(new MenuState);

@@ -10,7 +10,7 @@ package
 		public static const CLIMB_SPEED:Number = 3.0;	// a floating-point multiplier for the player's speed
 		public static const FALL_SPEED:Number = 6.0;
 		public static const START_ALTITUDE:int = 700;
-		public static const START_X:int = 240;
+		public static const START_X:int = 200;
 		public var hasFailed:Boolean = false;
 		
 		public function Player(x:int, y:int)
