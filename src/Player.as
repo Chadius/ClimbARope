@@ -66,9 +66,11 @@ package
 		
 		public function fail():void
 		{
-			this.hasFailed = true;
-			this.play("Fail");
-			FlxG.play(scream, 0.4);
+			if (!this.hasFailed) {
+				this.hasFailed = true;
+				this.play("Fail");
+				FlxG.play(scream, 0.4);
+			}
 			
 		}
 		
