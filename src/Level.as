@@ -135,8 +135,8 @@ package
 			background.draw();
 			windowGroup.draw();
 			testTextField.draw();
-			group.draw();
 			helpText.draw();
+			group.draw();
 			balconyGroup.draw();
 			EnemyProjectiles.draw();
 		}
