@@ -35,6 +35,8 @@ package
 			
 		[Embed (source = "../assets/audio/Victory_1.mp3")] private var victorySound:Class;
 		[Embed (source = "../assets/window.png")] private var window_img:Class;
+		[Embed (source = "../assets/audio/Pivot.mp3")] private var pivotSound:Class;
+
 		public var windowGroup:FlxGroup;
 		
 		public var background:FlxSprite;		//Background image.
@@ -101,6 +103,9 @@ package
 					FlxG.overlap(player, EnemyProjectiles, collidePlayerProjectile);
 					FlxG.overlap(player, balconyGroup, collide_player_balcony);
 					FlxG.overlap(EnemyProjectiles, balconyGroup, collide_projectile_balcony);
+					if (player.flipedThisTurn) {
+						FlxG.play(pivotSound);
+					}
 					
 				}
 			}
