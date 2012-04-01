@@ -27,10 +27,13 @@ birdCrash06.png \
 ../assets/bird.png
 
 cp backgroundDay.png ../assets/
+cp backgroundNightScraper.png ../assets/
 
 cp victory.png ../assets/
+cp credits.png ../assets/
 
 cp balcony.png ../assets/
+cp balcony2.png ../assets/
 
 #Post processing
 cd ..

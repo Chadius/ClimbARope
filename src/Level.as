@@ -33,7 +33,6 @@ package
 		public var resetTimerWait:Number = 5.0; //Wait this long before resetting the game
 		public var resetTimerElapsed:Number;			//the total time spent waiting for a reset
 			
-		[Embed (source = "../assets/backgroundDay.png")] private var background_day_img:Class;
 		[Embed (source = "../assets/audio/Victory_1.mp3")] private var victorySound:Class;
 		
 		public var background:FlxSprite;		//Background image.
@@ -41,7 +40,8 @@ package
 		public var isVictoryLevel:Boolean;
 		public var victoryImage:FlxSprite;
 		
-		public function Level(i:int, theEvents:EventList, theHelpText:HelpText, theBalconyGroup:FlxGroup, thePlayer:Player) 
+		public function Level(i:int, theEvents:EventList, theHelpText:HelpText, theBalconyGroup:FlxGroup, 
+							thePlayer:Player, background_img:Class) 
 		{
 			helpText = theHelpText;
 			events = theEvents;
@@ -58,7 +58,7 @@ package
 			group.add(player);
 			EnemyProjectiles = new FlxGroup();
 			//Load the background
-			background = new FlxSprite(0, 0, background_day_img);
+			background = new FlxSprite(0, 0, background_img);
 			timeInLevel = 0;
 			resetTimerCountdown = false;
 			resetTimerElapsed = 0;

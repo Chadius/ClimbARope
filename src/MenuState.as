@@ -1,7 +1,7 @@
 package
 {
 	import org.flixel.*;
-
+		
 	public class MenuState extends FlxState
 	{
 		private var startButton:FlxButton;
@@ -20,11 +20,9 @@ package
 			demoButton = new FlxButton(90, 200, "Demo", demoMode);
 			startButton = new FlxButton(90, 225, "Start Game", startGame);
 			creditsButton = new FlxButton(90, 250, "Credits", showCredits);
-			exitButton = new FlxButton(90, 275, "Exit", exitGame);
 			add(demoButton);
 			add(startButton);
 			add(creditsButton);
-			add(exitButton);
 		}
 
 		private function demoMode():void
@@ -42,13 +40,7 @@ package
 		private function showCredits():void
 		{
 			FlxG.mouse.hide();
-			FlxG.switchState(new PlayState);
-		}
-		
-		private function exitGame():void
-		{
-			FlxG.mouse.hide();
-			FlxG.switchState(new PlayState);
+			FlxG.switchState(new CreditsState);
 		}
 	}
 }
