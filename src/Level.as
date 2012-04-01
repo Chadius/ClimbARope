@@ -88,6 +88,7 @@ package
 				//did they collide with player?
 				FlxG.overlap(player, EnemyProjectiles, collidePlayerProjectile);
 				FlxG.overlap(player, balconyGroup, collide_player_balcony);
+				FlxG.overlap(EnemyProjectiles, balconyGroup, collide_projectile_balcony);
 				player.x = rope.x + player.getRopeOffset();
 			}
 			
@@ -128,5 +129,12 @@ package
 		{
 			player.collideWithBalcony(balcony);
 		}
+		
+		public function collide_projectile_balcony(proj:EnemyProjectile, balcony:Balcony):void 
+		{
+			if (FlxCollision.pixelPerfectCheck(proj, balcony))
+				proj.fail();
+		}
+
 	}
 }
