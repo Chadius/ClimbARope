@@ -152,12 +152,12 @@ package
 					balconies.add(new Balcony(BALC_RIGHT, BALC_Y3, balcony2_img));
 					break;
 				case 3:
-					balconies.add(new Balcony(BALC_LEFT, BALC_Y4, balcony2_img));
-					balconies.add(new Balcony(BALC_RIGHT, BALC_Y2, balcony2_img));
+					balconies.add(new Balcony(BALC_LEFT, BALC_Y5, balcony2_img));
+					balconies.add(new Balcony(BALC_RIGHT, BALC_Y1, balcony2_img));
 					break;
 				case 4:
-					balconies.add(new Balcony(BALC_RIGHT, BALC_Y4, balcony2_img));
-					balconies.add(new Balcony(BALC_LEFT, BALC_Y2, balcony2_img));
+					balconies.add(new Balcony(BALC_RIGHT, BALC_Y5, balcony2_img));
+					balconies.add(new Balcony(BALC_LEFT, BALC_Y1, balcony2_img));
 					break;
 				case 5:
 					balconies.add(new Balcony(BALC_RIGHT, BALC_Y3, balcony2_img));
@@ -206,22 +206,18 @@ package
 				case 1:
 					windows.add(new FlxSprite(WINDOW_LEFT, WINDOW_Y1, window_img));
 					windows.add(new FlxSprite(WINDOW_LEFT, WINDOW_Y5, window_img));
-					windows.add(new FlxSprite(WINDOW_RIGHT, WINDOW_Y1, window_img));
-					windows.add(new FlxSprite(WINDOW_RIGHT, WINDOW_Y5, window_img));
 					break;
 				case 2:
-					windows.add(new FlxSprite(WINDOW_LEFT, WINDOW_Y1, window_img));
-					windows.add(new FlxSprite(WINDOW_LEFT, WINDOW_Y5, window_img));
 					windows.add(new FlxSprite(WINDOW_RIGHT, WINDOW_Y1, window_img));
 					windows.add(new FlxSprite(WINDOW_RIGHT, WINDOW_Y5, window_img));
 					break;
 				case 3:
-					windows.add(new FlxSprite(WINDOW_LEFT, WINDOW_Y2, window_img));;
-					windows.add(new FlxSprite(WINDOW_RIGHT, WINDOW_Y4, window_img));
+					windows.add(new FlxSprite(WINDOW_LEFT, WINDOW_Y3, window_img));;
+					windows.add(new FlxSprite(WINDOW_LEFT, WINDOW_Y1, window_img));
 					break;
 				case 4:
-					windows.add(new FlxSprite(WINDOW_LEFT, WINDOW_Y4, window_img));;
-					windows.add(new FlxSprite(WINDOW_RIGHT, WINDOW_Y2, window_img));
+					windows.add(new FlxSprite(WINDOW_LEFT, WINDOW_Y5, window_img));;
+					windows.add(new FlxSprite(WINDOW_RIGHT, WINDOW_Y1, window_img));
 					break;
 				case 5:
 					windows.add(new FlxSprite(WINDOW_LEFT, WINDOW_Y1, window_img));
@@ -233,7 +229,9 @@ package
 				case 6:
 					windows.add(new FlxSprite(WINDOW_LEFT, WINDOW_Y1, window_img));
 					windows.add(new FlxSprite(WINDOW_LEFT, WINDOW_Y5, window_img));
+					windows.add(new FlxSprite(WINDOW_RIGHT, WINDOW_Y1, window_img));
 					windows.add(new FlxSprite(WINDOW_RIGHT, WINDOW_Y3, window_img));
+					windows.add(new FlxSprite(WINDOW_RIGHT, WINDOW_Y5, window_img));
 					break;
 				case 7:
 					windows.add(new FlxSprite(WINDOW_LEFT, WINDOW_Y3, window_img));
