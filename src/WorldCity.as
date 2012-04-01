@@ -1,6 +1,8 @@
 package  
 {
 	import org.flixel.FlxGroup;
+	import org.flixel.FlxSprite;
+
 	/**
 	 * ...
 	 * @author JR
@@ -13,10 +15,10 @@ package
 		public static const FROM_LEFT:int = -20;
 		public static const FROM_RIGHT:int = 500;
 		
+		[Embed (source = "../assets/backgroundDay.png")] private var victory_img:Class;
+		
 		public function WorldCity() 
 		{
-			
-			
 			//Define each level
 			//testing only!
 			var i:int;
@@ -24,6 +26,11 @@ package
 			for (i = 0; i < 10; i++) 
 			{
 				levels.push(new Level(i, eventsForLevel(i), helpTextForLevel(i), balconiesForLevel(i)));
+				if (i == 1)
+				{
+					levels[1].isVictoryLevel = true;
+					levels[1].victoryImage = new FlxSprite(0, 0, victory_img);
+				}
 			}
 		}
 		
