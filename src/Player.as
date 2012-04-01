@@ -46,13 +46,17 @@ package
 				{
 					this.flip();
 				}
-				if ( !(FlxG.keys.UP || FlxG.keys.DOWN) && y != 700) {
+				if ( !(FlxG.keys.UP || FlxG.keys.DOWN)) {
 					y -= SLIP_SPEED;
 				}
 			}
 			else
 				y += FALL_SPEED;
+			if (y >= 700) {
+				y = 700;
+			}
 			super.update();
+			
 		}
 		
 		public function fail():void
