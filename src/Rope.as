@@ -10,13 +10,13 @@ package
 		// Embed the player's image in the swf
 		[Embed (source = "../assets/rope.png")] private var rope_img:Class;
 
-		public function Rope(x:int, y:int)
+		public function Rope(x:int, y:int, ropeHeight:int)
 		{			
 			// Make a FlxSprite at the given location, using our image
-			height = FlxG.height;
-			super(x, y, rope_img);
+			height = ropeHeight;
+			super(x, FlxG.height - ropeHeight, rope_img);
 			
-			var new_pixels:BitmapData = new BitmapData(pixels.width, FlxG.height);
+			var new_pixels:BitmapData = new BitmapData(pixels.width, ropeHeight);
 			for (var i:int; new_pixels.height > (pixels.height * i); i++) {
 				new_pixels.copyPixels(pixels, pixels.rect, new Point(0, pixels.height * i));
 			}

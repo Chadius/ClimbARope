@@ -45,7 +45,8 @@ package
 		public var victoryImage:FlxSprite;
 		
 		public function Level(i:int, theEvents:EventList, theHelpText:HelpText, theBalconyGroup:FlxGroup, 
-							thePlayer:Player, background_img:Class, theWindowsGroup:FlxGroup, thewindow_img:Class) 
+							thePlayer:Player, background_img:Class, theWindowsGroup:FlxGroup, thewindow_img:Class,
+							ropeHeight:int) 
 		{
 			helpText = theHelpText;
 			events = theEvents;
@@ -53,7 +54,7 @@ package
 			levelComplete = false;
 			victorySoundHasPlayed = false;
 			endpoint = 10;
-			rope = new Rope(270, 0);
+			rope = new Rope(270, 0, ropeHeight);
 			player = thePlayer;
 			//player.y = Player.START_ALTITUDE;
 			balconyGroup = theBalconyGroup;
