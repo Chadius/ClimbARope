@@ -12,12 +12,14 @@ package
 		public var currentLevel:Level;					//refers to the currently active level
 		public var player:Player;
 		
+		[Embed (source = "../assets/audio/ClimbARopethemelooped.mp3")] private var theme:Class;
+		
 		public static const ROPE_RIGHT:int = 300;
 		public static const ROPE_LEFT:int = 220;
 		public static const FAR_RIGHT:int = 450;
 		public static const FAR_LEFT:int = 70;
 		
-		public static const FROM_ABOVE:int = -20;
+		public static const FROM_ABOVE:int = -50;
 		public static const FROM_LEFT:int = -20;
 		public static const FROM_RIGHT:int = 560;
 		
@@ -43,6 +45,8 @@ package
 		override public function create():void
 		{
 			currentLevel = levels.shift();				//pulls the first level off the queue
+			
+			FlxG.playMusic(theme, 0.2);
 		}
 		
 		override public function update():void

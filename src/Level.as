@@ -34,7 +34,7 @@ package
 		public var resetTimerElapsed:Number;			//the total time spent waiting for a reset
 			
 		[Embed (source = "../assets/audio/Victory_1.mp3")] private var victorySound:Class;
-		[Embed (source = "../assets/audio/Pivot.mp3")] private var pivotSound:Class;
+		[Embed (source = "../assets/audio/Pivot-2.mp3")] private var pivotSound:Class;
 
 		public var windowGroup:FlxGroup;
 		public var window_img:Class;

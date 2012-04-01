@@ -73,9 +73,9 @@ package
 					timedEvents.push(new TimedEvent(2, new Pot(ROPE_RIGHT, FROM_ABOVE, pot2_img)));
 					break;
 				case 7:
-					timedEvents.push(new TimedEvent(0.5, new Pot(ROPE_LEFT, FROM_ABOVE, pot2_img)));
-					timedEvents.push(new TimedEvent(1.5, new Pot(ROPE_RIGHT, FROM_ABOVE, pot2_img)));
-					timedEvents.push(new TimedEvent(2.5, new Pot(ROPE_LEFT, FROM_ABOVE, pot2_img)));
+					timedEvents.push(new TimedEvent(0, new Pot(ROPE_LEFT, FROM_ABOVE, pot2_img)));
+					timedEvents.push(new TimedEvent(1, new Pot(ROPE_RIGHT, FROM_ABOVE, pot2_img)));
+					timedEvents.push(new TimedEvent(2, new Pot(ROPE_LEFT, FROM_ABOVE, pot2_img)));
 					break;
 				case 8:
 					positionEvents.push(new PositionEvent(500, new Pot(ROPE_LEFT, FROM_ABOVE, pot2_img)));
