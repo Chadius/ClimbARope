@@ -97,6 +97,7 @@ package
 					FlxG.overlap(player, EnemyProjectiles, collidePlayerProjectile);
 					FlxG.overlap(player, balconyGroup, collide_player_balcony);
 					FlxG.overlap(EnemyProjectiles, balconyGroup, collide_projectile_balcony);
+					
 				}
 			}
 			
@@ -145,7 +146,7 @@ package
 		
 		public function collide_player_balcony(player:Player, balcony:Balcony):void 
 		{
-			if (!player.hasFailed){
+			if (FlxCollision.pixelPerfectCheck(player, balcony) && !player.hasFailed){
 				player.collideWithBalcony(balcony);
 			}
 		}
