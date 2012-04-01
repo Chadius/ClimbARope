@@ -146,7 +146,9 @@ package
 		
 		public function collide_player_balcony(player:Player, balcony:Balcony):void 
 		{
-			player.collideWithBalcony(balcony);
+			if (!player.hasFailed){
+				player.collideWithBalcony(balcony);
+			}
 		}
 		
 		public function collide_projectile_balcony(proj:EnemyProjectile, balcony:Balcony):void 
