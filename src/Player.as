@@ -68,7 +68,7 @@ package
 		{
 			this.hasFailed = true;
 			this.play("Fail");
-			FlxG.play(scream);
+			FlxG.play(scream, 0.4);
 			
 		}
 		
