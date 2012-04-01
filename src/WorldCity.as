@@ -269,7 +269,6 @@ package
 				case 12:
 					windows.add(new FlxSprite(WINDOW_RIGHT, WINDOW_Y1, window_img));
 					windows.add(new FlxSprite(WINDOW_LEFT, WINDOW_Y3, window_img));
-					windows.add(new FlxSprite(WINDOW_RIGHT, WINDOW_Y5, window_img));
 					break;
 				default:
 					break;
