@@ -6,6 +6,7 @@ package
 	{
 		// Embed the player's image in the swf
 		[Embed (source = "../assets/tracy.png")] private var player_img:Class;
+		[Embed (source = "../assets/audio/Scream.mp3")] private var scream:Class;
 		
 		public static const CLIMB_SPEED:Number = 3.0;	// a floating-point multiplier for the player's speed
 		public static const FALL_SPEED:Number = 6.0;
@@ -64,6 +65,8 @@ package
 		{
 			this.hasFailed = true;
 			this.play("Fail");
+			FlxG.play(scream);
+			
 		}
 		
 		public function flip():void

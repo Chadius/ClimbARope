@@ -104,7 +104,7 @@ package
 			if (resetTimerCountdown == true || isVictoryLevel == true)
 			{
 								
-				if (!victorySoundHasPlayed) {
+				if (isVictoryLevel && !victorySoundHasPlayed) {
 					FlxG.play(victorySound);
 					victorySoundHasPlayed = true;
 				}
@@ -152,7 +152,7 @@ package
 		
 		public function collide_projectile_balcony(proj:EnemyProjectile, balcony:Balcony):void 
 		{
-			if (FlxCollision.pixelPerfectCheck(proj, balcony))
+			if (FlxCollision.pixelPerfectCheck(proj, balcony) && !(proj is Bird))
 				proj.fail();
 		}
 	}

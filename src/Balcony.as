@@ -10,7 +10,12 @@ package
 		
 		public function Balcony(x:int, y:int) 
 		{
-			super(x, y, balcony_img);			
+			super(x, y);
+			this.loadGraphic(balcony_img, false, true);
+			if(x < 270)
+				this.facing = RIGHT;
+			else
+				this.facing = LEFT;
 		}
 	}
 }
