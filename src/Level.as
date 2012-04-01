@@ -104,7 +104,7 @@ package
 			if (resetTimerCountdown == true || isVictoryLevel == true)
 			{
 								
-				if (!victorySoundHasPlayed) {
+				if (isVictoryLevel && !victorySoundHasPlayed) {
 					FlxG.play(victorySound);
 					victorySoundHasPlayed = true;
 				}
