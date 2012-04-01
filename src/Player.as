@@ -88,7 +88,7 @@ package
 			}
 		}
 		
-		public function collideWithBalcony(balcony:Balcony	):void 
+		public function collideWithBalcony(balcony:Balcony):void 
 		{
 			if (flipedThisTurn) {
 				this.flip();
