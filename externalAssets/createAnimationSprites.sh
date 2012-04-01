@@ -36,6 +36,7 @@ birdCrash06.png \
 cp backgroundDay.png ../assets/
 cp backgroundNightScraper.png ../assets/
 cp backgroundBrix.png ../assets/
+cp backgroundBrixTop.png ../assets/
 
 cp victory.png ../assets/
 cp credits.png ../assets/
@@ -44,6 +45,7 @@ cp balcony.png ../assets/
 cp balcony2.png ../assets/
 
 cp window.png ../assets/
+cp title.png ../assets/
 
 #Post processing
 cd ..

@@ -16,9 +16,12 @@ package
 		private static const START_BUTTON:int = 1;
 		private static const CREDITS_BUTTON:int = 2;
 		
+		[Embed (source = "../assets/title.png")] private var title_img:Class;
+		public var title:FlxSprite;
+		
 		public function MenuState()
 		{
-			
+			title = new FlxSprite(0, 0, title_img);
 		}
 
 		override public function create():void
@@ -60,6 +63,12 @@ package
 		{
 			FlxG.mouse.hide();
 			FlxG.switchState(new CreditsState);
+		}
+		
+		override public function draw():void
+		{
+			title.draw();
+			super.draw();
 		}
 	}
 }
