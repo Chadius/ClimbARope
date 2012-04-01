@@ -10,6 +10,8 @@ package
 		public static const ROPE_RIGHT:int = 300;
 		public static const ROPE_LEFT:int = 220;
 		public static const FROM_ABOVE:int = -20;
+		public static const FROM_LEFT:int = -20;
+		public static const FROM_RIGHT:int = 500;
 		
 		public function WorldCity() 
 		{
@@ -89,10 +91,10 @@ package
 			switch (i)
 			{
 				case 0:
-					balconies.add(new Balcony(0, 200));
+					
 					break;
 				case 1:
-					
+					balconies.add(new Balcony(0, 200));
 					break;
 				default:
 					
