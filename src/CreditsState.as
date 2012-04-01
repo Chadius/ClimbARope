@@ -37,11 +37,13 @@ package
 			creditList2.push(new MenuText("Also, awesome audio assist from:", 100, top, 0xDADD33));
 			creditList2.push(new MenuText("Rick Cody: Composer (iOS GarageBand)", 50, top + 80, 0xEFEFEF));
 			creditList2.push(new MenuText("Miles Flanagan: Sound Design", 20, top + 160, 0xEFEFEF));
-			for each(var mt:MenuText in creditList2)
+			for each(mt in creditList2)
 				add(mt.textField);
 				
 			creditList3.push(new MenuText("And most importantly, YOU!", 300, 600, 0xDADD33));
-			
+			for each(mt in creditList3)
+				add(mt.textField);
+				
 			FlxG.mouse.hide();
 		}
 		
