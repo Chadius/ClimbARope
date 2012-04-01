@@ -17,7 +17,7 @@ package
 		public static const FAR_RIGHT:int = 450;
 		public static const FAR_LEFT:int = 70;
 		
-		public static const FROM_ABOVE:int = -20;
+		public static const FROM_ABOVE:int = -50;
 		public static const FROM_LEFT:int = -20;
 		public static const FROM_RIGHT:int = 560;
 		
