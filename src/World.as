@@ -13,7 +13,6 @@ package
 		public var player:Player;
 		
 		[Embed (source = "../assets/audio/ClimbARopethemelooped.mp3")] private var theme:Class;
-
 		
 		public static const ROPE_RIGHT:int = 300;
 		public static const ROPE_LEFT:int = 220;
@@ -47,7 +46,7 @@ package
 		{
 			currentLevel = levels.shift();				//pulls the first level off the queue
 			
-			FlxG.play(theme, 0.2, true, false);
+			FlxG.playMusic(theme, 0.2);
 		}
 		
 		override public function update():void
