@@ -163,28 +163,22 @@ package
 
 		public function makeWindows():void
 		{
+			//Place a window at each balcony.
 			windowGroup = new FlxGroup();
-			makeWindowsHelper(20);
-			makeWindowsHelper(400);
+			var i:int;
+			for (i = 0; i < this.balconyGroup.length; i++)
+			{
+				if(this.balconyGroup.members[i] != null)
+					makeWindowFromBalcony(this.balconyGroup.members[i]);
+			}
 		}
 
-		public function makeWindowsHelper(windowX:int):void
+		public function makeWindowFromBalcony(bal:Balcony):void
 		{
-			var windowY:int;
-			var windowWidth:int;
-			var windowHeight:int;
-			
-			windowY = -128;
-			windowWidth = 128;
-			windowHeight = 128;
-			
-			do
-			{
-				windowX += (FlxG.random() * windowWidth / 4.0) - (windowWidth / 8.0);
-				windowY += windowHeight + (FlxG.random() * windowHeight / 4.0) + windowHeight / 4.0;
-				
-				windowGroup.add(new FlxSprite(windowX, windowY, window_img));
-			} while (windowY < 800)
+			var windowWidth:int = 128;
+			var windowHeight:int = 128;
+			var balconyWidth:int = 230;
+			windowGroup.add(new FlxSprite(bal.x + (balconyWidth - windowWidth) / 2, bal.y - windowHeight + 68, window_img));
 		}
 	}
 }
