@@ -29,10 +29,8 @@ package
 			FlxG.mouse.hide();
 			startInstructions = new MenuText("Press Enter to start.", 75, 400, 0xAADDDDDD);
 			creditsInstructions = new MenuText("Press C to view credits.", 75, 500, 0xAADD3333);
-			TitleText.Initialize();
 			add(startInstructions.textField);
 			add(creditsInstructions.textField);
-			add(TitleText.textField);
 			activeButton = 1;
 		}
 		
