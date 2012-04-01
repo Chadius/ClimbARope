@@ -15,6 +15,9 @@ package
 		[Embed (source = "../assets/audio/Crow_Death_1.mp3")] private var crowDeath1:Class;
 		[Embed (source = "../assets/audio/Crow_Death_1.mp3")] private var crowDeath2:Class;
 		[Embed (source = "../assets/audio/Crow_Death_1.mp3")] private var crowDeath3:Class;
+		[Embed (source = "../assets/audio/Caw_1.mp3")] private var caw1:Class;
+		[Embed (source = "../assets/audio/Caw_2.mp3")] private var caw2:Class;
+		[Embed (source = "../assets/audio/Caw_3.mp3")] private var caw3:Class;
 		
 		// a floating-point multiplier for the bird's flying speed.
 		public static const FLY_SPEED:Number = 1.0;
@@ -28,6 +31,20 @@ package
 			this.loadGraphic(bird_img, true, true, 64, 64);
 			this.addAnimation("Fly", [0, 1], 6, true);
 			this.addAnimation("Crash", [2, 3], 10, false);
+			
+			switch (Math.floor(FlxG.random() * 3)) {
+				case 0:
+					FlxG.play(caw1);
+					break;
+				case 1:
+					FlxG.play(caw2);
+					break;
+				case 2:
+					FlxG.play(caw3);
+					break;
+				default:
+					break;
+			}
 			
 			//Determine facing
 			if (x < 270)
