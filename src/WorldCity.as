@@ -39,8 +39,9 @@ package
 									background_brix_img, windowsForLevel(i), window_img));
 			}
 			//Add the victory level and image here.
-			levels[LEVEL_COUNT - 1].isVictoryLevel = true;
-			levels[LEVEL_COUNT - 1].victoryImage = new FlxSprite(0, 0, victory_img);
+			var victory_level:int = LEVEL_COUNT - 1;
+			levels[victory_level].isVictoryLevel = true;
+			levels[victory_level].victoryImage = new FlxSprite(0, 0, victory_img);
 		}
 		
 		private function eventsForLevel(i:int):EventList
