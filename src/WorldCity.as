@@ -144,8 +144,6 @@ package
 			switch (i)
 			{
 				case 0:
-					balconies.add(new Balcony(BALC_LEFT, BALC_Y3, balcony2_img));
-					//temp
 					break;
 				case 1:
 					balconies.add(new Balcony(BALC_LEFT, BALC_Y3, balcony2_img));
@@ -200,7 +198,7 @@ package
 			{
 				case 0:
 					windows.add(new FlxSprite(WINDOW_LEFT, WINDOW_Y1, window_img));
-					//windows.add(new FlxSprite(WINDOW_LEFT, WINDOW_Y3, window_img));
+					windows.add(new FlxSprite(WINDOW_LEFT, WINDOW_Y3, window_img));
 					windows.add(new FlxSprite(WINDOW_RIGHT, WINDOW_Y1, window_img));
 					windows.add(new FlxSprite(WINDOW_RIGHT, WINDOW_Y3, window_img));
 					windows.add(new FlxSprite(WINDOW_RIGHT, WINDOW_Y5, window_img));
