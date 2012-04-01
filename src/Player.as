@@ -37,11 +37,11 @@ package
 				}
 				if ( FlxG.keys.LEFT && this.facing != RIGHT)
 				{
-					this.facing = RIGHT;
+					this.flip();
 				}
 				if ( FlxG.keys.RIGHT && this.facing != LEFT)
 				{
-					this.facing = LEFT;
+					this.flip();
 				}
 			}
 			else
@@ -55,23 +55,21 @@ package
 			this.play("Fail");
 		}
 		
-		public function getRopeOffset():Number 
+		public function flip():void
 		{
-			return (this.facing == RIGHT)? -70 : -26;
+			if (this.facing == RIGHT) {
+				this.facing = LEFT;
+				this.x = 244;
+			} else {
+				this.facing = RIGHT;
+				this.x = 200;
+			}
 		}
 		
-		public function getPlayerOffset():Number 
-		{
-			return this.width * ((this.facing == RIGHT)? -1: 1);
-		}
-		
-		public function collideWithBalcony(balcony:Balcony):void 
+		public function collideWithBalcony(balcony:Balcony	):void 
 		{
 			if (this.overlapsAt(this.x, this.last.y, balcony)) {
-				trace("this.facing ", this.facing);
-				this.facing = (this.facing == LEFT)? RIGHT: LEFT;
-				this.x = this.x + this.getPlayerOffset();
-				trace("this.facing ", this.facing);
+				this.flip();
 			} else {
 				this.y = this.last.y;
 			}
